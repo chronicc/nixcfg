@@ -50,6 +50,11 @@
 
   services.openssh.enable = true;
 
+  system.autoUpgrade = {
+    enable = true;
+    channel = "https://nixos.org/channels/nixos-unstable";
+  };
+
   time.timeZone = "Europe/Berlin";
 
   users.users.chronicc = {
