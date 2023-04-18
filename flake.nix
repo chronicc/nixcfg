@@ -2,10 +2,14 @@
   description = "Central Flake Configuration";
 
   inputs = {
+    home-manager = {
+      url = github:nix-community/home-manager;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, home-manager }:
     let
       lib = nixpkgs.lib;
       pkgs = import nixpkgs {
@@ -19,6 +23,20 @@
           inherit system;
           modules = [
             ./configuration.nix
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.chronicc.home = {
+                homeDirectory = "/home/chronicc";
+                packages = with pkgs; [
+                  bottom
+                  git
+                  tig
+                ];
+                stateVersion = "22.11";
+                username = "chronicc";
+              };
+            }
           ];
         };
       };
