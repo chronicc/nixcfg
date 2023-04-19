@@ -8,6 +8,27 @@
   home.stateVersion = "22.11";
   home.username = "chronicc";
 
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    historyControl = [
+      "erasedups"
+      "ignoredups"
+    ];
+    logoutExtra = ''
+      clear
+    '';
+    shellAliases = {
+      ".." = "cd ..";
+      ll = "ls -lah --group-directories-first";
+      myip = "curl https://ipinfo.io/ip";
+      nossh = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
+    };
+    shellOptions = [
+      "histappend"
+    ];
+  };
+
   programs.neovim = {
     coc = {
       enable = true;
