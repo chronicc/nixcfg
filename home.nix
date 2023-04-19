@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  home.file = {
+    ".config/hypr" = {
+      source = ./dotfiles/hypr;
+      recursive = true;
+    };
+  };
   home.homeDirectory = "/home/chronicc";
   home.packages = with pkgs; [
     awscli2
