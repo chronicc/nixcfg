@@ -45,12 +45,18 @@
       vim
       wget
     ];
+    variables = {
+      # LIBVA_DRIVER_NAME = "iHD";
+      VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+    };
   };
 
   fonts.fonts = with pkgs; [
+    carlito
     corefonts
-    font-awesome
+    nerdfonts
     source-code-pro
+    vegur
   ];
 
   hardware = {
@@ -60,7 +66,7 @@
         intel-media-driver
         libvdpau-va-gl
         vaapiIntel
-        vaapiVdpau
+        # vaapiVdpau
       ];
     };
   };

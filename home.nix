@@ -29,7 +29,11 @@
       awscli2
       brave
       docker
+      font-manager
       minikube
+      networkmanagerapplet
+      pamixer
+      pavucontrol
       poetry
       tig
       terraform
@@ -38,7 +42,7 @@
       gtk.enable = true;
       name = "Dracula-cursors";
       package = pkgs.dracula-theme;
-      size = 16;
+      size = 24;
     };
     stateVersion = "22.11";
     username = "chronicc";
