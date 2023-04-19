@@ -26,15 +26,8 @@
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.chronicc.home = {
-                homeDirectory = "/home/chronicc";
-                packages = with pkgs; [
-                  bottom
-                  git
-                  tig
-                ];
-                stateVersion = "22.11";
-                username = "chronicc";
+              home-manager.users.chronicc = {
+                imports = [ ./home.nix ];
               };
             }
           ];
