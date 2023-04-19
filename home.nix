@@ -36,4 +36,18 @@
     viAlias = true;
     vimAlias = true;
   };
+
+  programs.readline = {
+    bindings = {
+      "\\e[A" = "history-search-backward";
+      "\\e[B" = "history-search-forward";
+    };
+    enable = true;
+    variables = {
+      completion-ignore-case = true;
+      expand-tilde = true;
+      history-preserve-point = true;
+      show-all-if-ambiguous = true;
+    };
+  };
 }
