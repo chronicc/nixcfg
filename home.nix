@@ -4,6 +4,7 @@
   home.homeDirectory = "/home/chronicc";
   home.packages = with pkgs; [
     awscli2
+    brave
     docker
     kitty
     minikube
