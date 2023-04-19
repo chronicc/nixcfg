@@ -3,44 +3,48 @@
 
   inputs = {
     home-manager = {
-      url = github:nix-community/home-manager;
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
   };
 
-  outputs = { home-manager, hyprland, nixpkgs, self }:
+  outputs = { self, home-manager, hyprland, nixpkgs, ... }:
     let
-      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
-      system = "x86_64-linux";
+
+      lib = nixpkgs.lib;
     in {
-      homeConfigurations = {
-        "chronicc@libre" = home-manager.lib.homeManagerConfiguration {
-          modules = [
-            hyprland.homeManagerModules.default {
-              wayland.windowManager.hyprland.enable = true;
-            }
-          ];
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        };
-      };
       nixosConfigurations = {
-        "libre" = lib.nixosSystem {
+        libre = lib.nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
+
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.chronicc = {
-                imports = [ ./home.nix ];
+                imports = [
+                  ./dunst.nix
+                  ./home.nix
+                ];
               };
             }
+
             hyprland.nixosModules.default {
               programs.hyprland.enable = true;
             }

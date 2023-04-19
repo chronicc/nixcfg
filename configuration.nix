@@ -2,50 +2,83 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
-  boot.initrd.luks.devices = {
-    crypted = {
-      bypassWorkqueues = true;
-      device = "/dev/disk/by-partuuid/c952e698-b368-42b0-a43c-aaa890e73ea6";
-      preLVM = true;
+  boot = {
+    initrd.luks.devices = {
+      crypted = {
+        bypassWorkqueues = true;
+        device = "/dev/disk/by-partuuid/c952e698-b368-42b0-a43c-aaa890e73ea6";
+        preLVM = true;
+      };
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "boot.shell_on_fail" "i915.force_probe=46a6" ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot = {
+        configurationLimit = 5;
+        enable = true;
+      };
+      timeout = 1;
     };
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "boot.shell_on_fail" ];
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   console = {
     font = "Lat2-Terminus16";
     keyMap = "de-latin1-nodeadkeys";
   };
 
-  environment.systemPackages = with pkgs; [
-    bottom
-    git
-    vim
-    wget
-  ];
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_TIME = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
+  environment = {
+    systemPackages = with pkgs; [
+      bottom
+      git
+      killall
+      pciutils
+      usbutils
+      vim
+      wget
+    ];
   };
 
-  networking.hostName = "libre";
-  networking.networkmanager.enable = true;
+  fonts.fonts = with pkgs; [
+    corefonts
+    font-awesome
+    source-code-pro
+  ];
+
+  hardware = {
+    opengl = {
+      enable = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+        libvdpau-va-gl
+        vaapiIntel
+        vaapiVdpau
+      ];
+    };
+  };
+
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_TIME = "de_DE.UTF-8";
+      LC_MONETARY = "de_DE.UTF-8";
+    };
+  };
+
+  networking = {
+    hostName = "libre";
+    networkmanager.enable = true;
+  };
 
   nix = {
-    extraOptions = "experimental-features = nix-command flakes";
     gc = {
       automatic = true;
       dates = "weekly";
@@ -53,16 +86,47 @@
     };
     package = pkgs.nixFlakes;
     settings = {
+      experimental-features = [ "nix-command" "flakes" ];
       substituters = ["https://hyprland.cachix.org"];
       trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
     };
   };
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+    };
+  };
+
   programs.ssh.startAgent = true;
   
-  security.sudo.wheelNeedsPassword = false;
+  security = {
+    rtkit = {
+      enable = true;
+    };
+    polkit = {
+      enable = true;
+    };
+    sudo = {
+      wheelNeedsPassword = false;
+    };
+  };
 
-  services.openssh.enable = true;
+  services = {
+    openssh = {
+      enable = true;
+    };
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+  };
 
   time.timeZone = "Europe/Berlin";
 

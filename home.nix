@@ -1,25 +1,48 @@
 { config, pkgs, ... }:
 
 {
-  home.file = {
-    ".config/hypr" = {
-      source = ./dotfiles/hypr;
-      recursive = true;
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+    iconTheme = {
+      name = "Zafiro-icons-Dark";
+      package = pkgs.zafiro-icons;
+    };
+    font = {
+      name = "DejaVu Sans";
+      package = pkgs.dejavu_fonts;
     };
   };
-  home.homeDirectory = "/home/chronicc";
-  home.packages = with pkgs; [
-    awscli2
-    brave
-    docker
-    minikube
-    poetry
-    source-code-pro
-    tig
-    terraform
-  ];
-  home.stateVersion = "22.11";
-  home.username = "chronicc";
+
+  home = {
+    file = {
+      ".config/hypr" = {
+        source = ./dotfiles/hypr;
+        recursive = true;
+      };
+    };
+    homeDirectory = "/home/chronicc";
+    packages = with pkgs; [
+      awscli2
+      brave
+      docker
+      minikube
+      poetry
+      tig
+      terraform
+    ];
+    pointerCursor = { 
+      gtk.enable = true;
+      name = "Dracula-cursors";
+      package = pkgs.dracula-theme;
+      size = 16;
+    };
+    stateVersion = "22.11";
+    username = "chronicc";
+  };
 
   programs.bash = {
     enable = true;
@@ -80,7 +103,7 @@
     enable = true;
     font = {
       name = "Source Code Pro";
-      size = 10;
+      size = 16;
     };
     keybindings = {
       "ctrl+shift+up" = "change_font_size all +2.0";
@@ -141,55 +164,11 @@
     };
   };
 
-  services.dunst = {
+  home.file.".config/waybar" = {
+    source = ./dotfiles/waybar;
+    recursive = true;
+  };
+  programs.waybar = {
     enable = true;
-    settings = {
-      global = {
-        alignment = "left";
-        class = "Dunst";
-        corner_radius = 10;
-        follow = "mouse";
-        font = "monospace 10";
-        frame_color = "#89B4FA";
-        frame_width = 1;
-        hide_duplicate_count = true;
-        horizontal_padding = 8;
-        idle_threshold = 120;
-        indicate_hidden = true;
-        line_height = 0;
-        markup = "full";
-        notification_height = 0;
-        offset = "10x10";
-        origin = "bottom-right";
-        padding = 8;
-        separator_color = "frame";
-        separator_height = 2;
-        show_age_threshold = 60;
-        show_indicators = true;
-        sort = true;
-        stack_duplicates = true;
-        text_icon_padding = 0;
-        timeout = 5;
-        title = "Dunst";
-        vertical_alignment = "center";
-        word_wrap = true;
-      };
-
-      urgency_high = {
-        background = "#1E1E2ECC";
-        foreground = "#CDD6F4";
-        frame_color = "#FAB387";
-      };
-
-      urgency_low = {
-        background = "#1E1E2ECC";
-        foreground = "#CDD6F4";
-      };
-
-      urgency_normal = {
-        background = "#1E1E2ECC";
-        foreground = "#CDD6F4";
-      };
-    };
   };
 }
