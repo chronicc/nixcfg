@@ -29,7 +29,9 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
+    bottom
+    git
+    vim
     wget
   ];
 
@@ -43,15 +45,13 @@
   networking.networkmanager.enable = true;
 
   nix = {
+    extraOptions = "experimental-features = nix-command flakes";
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
-    };
+    package = pkgs.nixFlakes;
   };
 
   programs.ssh.startAgent = true;
@@ -59,11 +59,6 @@
   security.sudo.wheelNeedsPassword = false;
 
   services.openssh.enable = true;
-
-  system.autoUpgrade = {
-    enable = true;
-    channel = "https://nixos.org/channels/nixos-unstable";
-  };
 
   time.timeZone = "Europe/Berlin";
 

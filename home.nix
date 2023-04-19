@@ -3,8 +3,6 @@
 {
   home.homeDirectory = "/home/chronicc";
   home.packages = with pkgs; [
-    bottom
-    git
     tig
   ];
   home.stateVersion = "22.11";
