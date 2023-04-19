@@ -3,7 +3,12 @@
 {
   home.homeDirectory = "/home/chronicc";
   home.packages = with pkgs; [
+    awscli2
+    docker
+    minikube
+    poetry
     tig
+    terraform
   ];
   home.stateVersion = "22.11";
   home.username = "chronicc";
@@ -27,6 +32,40 @@
     shellOptions = [
       "histappend"
     ];
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = false;
+    enableNushellIntegration = false;
+    enableZshIntegration = false;
+    nix-direnv.enable = true;
+    stdlib = ''
+      layout_poetry() {
+          PYPROJECT_TOML="''${PYPROJECT_TOML:-pyproject.toml}"
+          if [[ ! -f "$PYPROJECT_TOML" ]]; then
+              log_status "No pyproject.toml found. Executing \`poetry init\` to create a \`$PYPROJECT_TOML\` first."
+              poetry init
+          fi
+
+          VIRTUAL_ENV=$(poetry show -v 2>/dev/null | grep -oE '/home/.*/.cache/pypoetry/virtualenvs/.*' ; true)
+
+          if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
+              log_status "No virtual environment exists. Executing \`poetry install\` to create one."    
+              poetry install
+              VIRTUAL_ENV=$(poetry env info --path)
+          fi
+
+          PATH_add "$VIRTUAL_ENV/bin"
+          export POETRY_ACTIVE=1
+          export VIRTUAL_ENV
+      }
+    '';
+  };
+
+  programs.jq = {
+    enable = true;
   };
 
   programs.neovim = {
