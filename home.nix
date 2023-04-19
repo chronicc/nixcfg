@@ -5,6 +5,7 @@
   home.packages = with pkgs; [
     awscli2
     docker
+    kitty
     minikube
     poetry
     tig
