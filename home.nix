@@ -4,8 +4,10 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
+      name = "Canta-dark-compact";
+      package = pkgs.canta-theme;
+      # name = "Dracula";
+      # package = pkgs.dracula-theme;
     };
     iconTheme = {
       name = "Zafiro-icons-Dark";
@@ -19,8 +21,8 @@
 
   home = {
     file = {
-      ".config/hypr" = {
-        source = ./dotfiles/hypr;
+      ".config" = {
+        source = ./config;
         recursive = true;
       };
     };
@@ -31,6 +33,7 @@
       docker
       font-manager
       minikube
+      neofetch
       networkmanagerapplet
       pamixer
       pavucontrol
@@ -168,10 +171,13 @@
     };
   };
 
-  home.file.".config/waybar" = {
-    source = ./dotfiles/waybar;
-    recursive = true;
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      yzhang.markdown-all-in-one
+    ];
   };
+
   programs.waybar = {
     enable = true;
   };

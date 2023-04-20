@@ -4,6 +4,9 @@
 
 	"modules-left": [
 		"wlr/workspaces",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "network",
 		"custom/right-arrow-dark"
 	],
 	"modules-center": [
@@ -83,11 +86,21 @@
 		"format": "{:%d.%m.%y}",
 		"tooltip": false
 	},
-
+  "network": {
+    "format": "{ifname}",
+    "format-ethernet": "<span font='20'>󰈀</span>",
+    "format-disconnected": "<span font='20'>󰌙</span>",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-wifi": "<span font='20'>{icon}</span> {signalStrength:2}%",
+    "interval": 2,
+    "on-click-right": "nm-connection-editor",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr} -> {gwaddr}",
+    "tooltip-format-wifi": "<big>Wifi</big>\n\nName: {essid}\nFrequency: {frequency}Ghz\n\nInterface: {ifname}\nAddress: {ipaddr}/{cidr}\nGateway: {gwaddr}\n\n<span font='20'></span> {bandwidthUpBytes}\n<span font='20'></span> {bandwidthDownBytes}"
+  },
 	"pulseaudio": {
-		"format": "<span font='24'>{icon}</span> {volume:2}%",
-		"format-bluetooth": "<span font='24'>{icon}</span> <span font='24'></span>{desc} {volume}%",
-		"format-muted": "<span font='24'>󰝟</span> {volume:2}%",
+		"format": "<span font='20'>{icon}</span> {volume:2}%",
+		"format-bluetooth": "<span font='20'>{icon}</span> <span font='20'></span>{desc} {volume}%",
+		"format-muted": "<span font='20'>󰝟</span> {volume:2}%",
 		"format-icons": {
 			"headphones": "󰋋",
 			"default": [
@@ -103,7 +116,7 @@
 	},
 	"memory": {
 		"interval": 5,
-		"format": "<span font='24'>󰍛</span> {percentage:2}%",
+		"format": "<span font='20'>󰍛</span> {percentage:2}%",
     "states": {
       "good": 90,
       "warning": 25,
@@ -112,7 +125,7 @@
 	},
 	"cpu": {
 		"interval": 5,
-		"format": "<span font='24'>󰻠</span> {usage:2}%"
+		"format": "<span font='20'>󰻠</span> {usage:2}%"
 	},
 	"battery": {
 		"states": {
@@ -120,7 +133,7 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "<span font='24'>{icon}</span> {capacity}%",
+		"format": "<span font='20'>{icon}</span> {capacity}%",
 		"format-icons": [
 			"",
 			"",
@@ -131,11 +144,11 @@
 	},
 	"disk": {
 		"interval": 5,
-		"format": "<span font='24'>󰋊</span> {percentage_used:2}%",
+		"format": "<span font='20'>󰋊</span> {percentage_used:2}%",
 		"path": "/"
 	},
 	"tray": {
-		"icon-size": 24,
+		"icon-size": 20,
     "show-passive-items": true
 	}
 }

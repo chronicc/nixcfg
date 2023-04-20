@@ -11,22 +11,28 @@
     ];
 
   boot = {
-    initrd.luks.devices = {
-      crypted = {
-        bypassWorkqueues = true;
-        device = "/dev/disk/by-partuuid/c952e698-b368-42b0-a43c-aaa890e73ea6";
-        preLVM = true;
+    initrd = {
+      luks.devices = {
+        crypted = {
+          bypassWorkqueues = true;
+          device = "/dev/disk/by-partuuid/c952e698-b368-42b0-a43c-aaa890e73ea6";
+          preLVM = true;
+        };
       };
+      systemd.enable = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "boot.shell_on_fail" "i915.force_probe=46a6" ];
+    kernelParams = [ "boot.shell_on_fail" "i915.force_probe=46a6" "quiet" ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
-        configurationLimit = 5;
+        configurationLimit = 10;
         enable = true;
       };
       timeout = 1;
+    };
+    plymouth = {
+      enable = true;
     };
   };
 
@@ -36,6 +42,9 @@
   };
 
   environment = {
+    etc = {
+      "greetd/greeter.jpg".source = ./greeter.jpg;
+    };
     systemPackages = with pkgs; [
       bottom
       git
@@ -46,8 +55,13 @@
       wget
     ];
     variables = {
-      # LIBVA_DRIVER_NAME = "iHD";
+      NIXOS_OZONE_WL = "1";
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+      # XKB_DEFAULT_RULES = "";
+      XKB_DEFAULT_MODEL = "pc105";
+      XKB_DEFAULT_LAYOUT = "de";
+      XKB_DEFAULT_VARIANT = "nodeadkeys";
+      # XKB_DEFAULT_OPTIONS = "";
     };
   };
 
@@ -66,7 +80,6 @@
         intel-media-driver
         libvdpau-va-gl
         vaapiIntel
-        # vaapiVdpau
       ];
     };
   };
@@ -105,7 +118,13 @@
     };
   };
 
-  programs.ssh.startAgent = true;
+  programs = {
+    regreet = {
+      enable = true;
+      settings = config/regreet/regreet.toml;
+    };
+    ssh.startAgent = true;
+  };
   
   security = {
     rtkit = {
@@ -120,6 +139,13 @@
   };
 
   services = {
+    greetd = {
+      enable = true;
+      restart = true;
+    };
+    locate = {
+      enable = true;
+    };
     openssh = {
       enable = true;
     };
