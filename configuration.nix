@@ -74,6 +74,10 @@
   ];
 
   hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
     opengl = {
       enable = true;
       extraPackages = with pkgs; [
@@ -121,7 +125,7 @@
   programs = {
     regreet = {
       enable = true;
-      settings = config/regreet/regreet.toml;
+      settings = ./dotfiles/regreet/regreet.toml;
     };
     ssh.startAgent = true;
   };
@@ -147,6 +151,7 @@
         { keys = [ 123 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master 5%+ unmute'"; }
       ];
     };
+    blueman.enable = true;
     greetd = {
       enable = true;
       restart = true;

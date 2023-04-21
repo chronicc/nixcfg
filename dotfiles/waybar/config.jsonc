@@ -7,6 +7,9 @@
 		"custom/right-arrow-dark",
 		"custom/right-arrow-light",
     "network",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "bluetooth",
 		"custom/right-arrow-dark"
 	],
 	"modules-center": [
@@ -73,6 +76,9 @@
     "on-click": "activate"
 	},
 
+  "bluetooth": {
+    
+  },
 	"clock#1": {
 		"format": "{:%A}",
 		"tooltip": false

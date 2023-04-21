@@ -22,7 +22,7 @@
   home = {
     file = {
       ".config" = {
-        source = ./config;
+        source = ./dotfiles;
         recursive = true;
       };
     };
@@ -36,6 +36,7 @@
       minikube
       neofetch
       networkmanagerapplet
+      nextcloud-client
       pamixer
       pavucontrol
       poetry
