@@ -139,10 +139,19 @@
   };
 
   services = {
+    actkbd = {
+      enable = true;
+      bindings = [
+        { keys = [ 121 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master toggle'"; }
+        { keys = [ 122 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master 5%- unmute'"; }
+        { keys = [ 123 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master 5%+ unmute'"; }
+      ];
+    };
     greetd = {
       enable = true;
       restart = true;
     };
+    illum.enable = true;
     locate = {
       enable = true;
     };
@@ -160,10 +169,18 @@
     };
   };
 
+  sound = {
+    enable = true;
+    mediaKeys = {
+      enable = true;
+      # volumeStep = "5%";
+    };
+  };
+
   time.timeZone = "Europe/Berlin";
 
   users.users.chronicc = {
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "audio" "lp" "networkmanager" "video" "wheel" ];
     initialPassword = "password";
     isNormalUser = true;
     openssh.authorizedKeys.keys = [

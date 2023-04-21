@@ -29,6 +29,7 @@
     homeDirectory = "/home/chronicc";
     packages = with pkgs; [
       awscli2
+      bemenu
       brave
       docker
       font-manager
@@ -38,6 +39,7 @@
       pamixer
       pavucontrol
       poetry
+      slack
       tig
       terraform
     ];
