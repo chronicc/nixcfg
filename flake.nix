@@ -41,6 +41,8 @@
                 imports = [
                   ./dunst.nix
                   ./home.nix
+                  ./kitty.nix
+                  ./waybar
                 ];
               };
             }

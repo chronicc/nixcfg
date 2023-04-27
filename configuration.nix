@@ -47,30 +47,39 @@
     };
     systemPackages = with pkgs; [
       bottom
+      eww-wayland
       git
+      # hyprpaper
       killall
       pciutils
+      swaybg
       usbutils
       vim
       wget
+      xdg-utils
     ];
     variables = {
+      DEFAULT_BROWSER = "${pkgs.brave}";
       NIXOS_OZONE_WL = "1";
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
       # XKB_DEFAULT_RULES = "";
       XKB_DEFAULT_MODEL = "pc105";
       XKB_DEFAULT_LAYOUT = "de";
       XKB_DEFAULT_VARIANT = "nodeadkeys";
-      # XKB_DEFAULT_OPTIONS = "";
+      # XKB_DEFAULT_OPTIONS = "";1
     };
   };
 
   fonts.fonts = with pkgs; [
     carlito
     corefonts
-    nerdfonts
-    source-code-pro
     vegur
+    (nerdfonts.override {
+      fonts = [
+        "Noto"
+        "SourceCodePro"
+      ];
+    })
   ];
 
   hardware = {
@@ -115,25 +124,40 @@
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      packageOverrides = pkgs: {
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      };
     };
+    overlays = [
+      (self: super: {
+        waybar = super.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        });
+      })
+    ];
   };
 
   programs = {
+    gnupg.agent = {
+      enable = true;
+      # enableSSHSupport = true;
+    };
+    mtr.enable = true;
     regreet = {
       enable = true;
       settings = ./dotfiles/regreet/regreet.toml;
     };
     ssh.startAgent = true;
   };
-  
+
   security = {
     rtkit = {
       enable = true;
     };
+    pam.services.chronicc.enableGnomeKeyring = true;
     polkit = {
       enable = true;
     };
@@ -152,6 +176,7 @@
       ];
     };
     blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
     greetd = {
       enable = true;
       restart = true;
@@ -182,6 +207,14 @@
     };
   };
 
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "22.11"; # Did you read the comment?
+
   time.timeZone = "Europe/Berlin";
 
   users.users.chronicc = {
@@ -193,21 +226,23 @@
     ];
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
-
+  xdg = {
+    autostart.enable = true;
+    mime = {
+      defaultApplications = {
+        "text/html" = "brave.desktop";
+        "x-scheme-handler/http" = "brave.desktop";
+        "x-scheme-handler/https" = "brave.desktop";
+        "x-scheme-handler/about" = "brave.desktop";
+        "x-scheme-handler/unknown" = "brave.desktop";
+      };
+      enable = true;
+    };
+    portal = {
+      enable = true;
+      wlr = {
+        enable = true;
+      };
+    };
+  };
 }
-

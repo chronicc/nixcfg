@@ -20,12 +20,12 @@
   };
 
   home = {
-    file = {
-      ".config" = {
-        source = ./dotfiles;
-        recursive = true;
-      };
-    };
+     file = {
+       ".config/hypr" = {
+         source = ./dotfiles/hypr;
+         recursive = true;
+       };
+     };
     homeDirectory = "/home/chronicc";
     packages = with pkgs; [
       awscli2
@@ -37,14 +37,16 @@
       neofetch
       networkmanagerapplet
       nextcloud-client
+      nixfmt # vscode
       pamixer
       pavucontrol
       poetry
       slack
+      spotify
       tig
       terraform
     ];
-    pointerCursor = { 
+    pointerCursor = {
       gtk.enable = true;
       name = "Dracula-cursors";
       package = pkgs.dracula-theme;
@@ -57,10 +59,7 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    historyControl = [
-      "erasedups"
-      "ignoredups"
-    ];
+    historyControl = [ "erasedups" "ignoredups" ];
     logoutExtra = ''
       clear
     '';
@@ -70,9 +69,7 @@
       myip = "curl https://ipinfo.io/ip";
       nossh = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no";
     };
-    shellOptions = [
-      "histappend"
-    ];
+    shellOptions = [ "histappend" ];
   };
 
   programs.direnv = {
@@ -93,7 +90,7 @@
           VIRTUAL_ENV=$(poetry show -v 2>/dev/null | grep -oE '/home/.*/.cache/pypoetry/virtualenvs/.*' ; true)
 
           if [[ -z $VIRTUAL_ENV || ! -d $VIRTUAL_ENV ]]; then
-              log_status "No virtual environment exists. Executing \`poetry install\` to create one."    
+              log_status "No virtual environment exists. Executing \`poetry install\` to create one."
               poetry install
               VIRTUAL_ENV=$(poetry env info --path)
           fi
@@ -105,38 +102,10 @@
     '';
   };
 
-  programs.jq = {
-    enable = true;
-  };
-
-  programs.kitty = {
-    enable = true;
-    font = {
-      name = "Source Code Pro";
-      size = 16;
-    };
-    keybindings = {
-      "ctrl+shift+up" = "change_font_size all +2.0";
-      "ctrl+shift+down" = "change_font_size all -2.0";
-      "ctrl+shift+backspace" = "change_font_size all 0";
-    };
-    settings = {
-      background_opacity = "0.9";
-      enable_audio_bell = "no";
-      placement_stragegy = "top-left";
-      scrollback_lines = "5000";
-      visual_bell_duration = "0.0";
-      window_border_width = "0";
-      window_margin_width = "4";
-      window_padding_width = "0";
-    };
-    theme = "Gruvbox Dark";
-  };
+  programs.jq = { enable = true; };
 
   programs.neovim = {
-    coc = {
-      enable = true;
-    };
+    coc = { enable = false; };
     defaultEditor = true;
     enable = true;
     extraConfig = ''
@@ -176,12 +145,67 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      yzhang.markdown-all-in-one
-    ];
-  };
-
-  programs.waybar = {
-    enable = true;
+    enableExtensionUpdateCheck = true;
+    enableUpdateCheck = true;
+    extensions = with pkgs.vscode-extensions;
+      [
+        _4ops.terraform
+        asciidoctor.asciidoctor-vscode
+        bbenoist.nix
+        bungcip.better-toml
+        # dhoeric.ansible-vault
+        # diego-vieira.codeception-snippets
+        # joshuapoehls.json-escaper
+        # marioqueiros.camelcase
+        mikestead.dotenv
+        # redhat.vscode-commons
+        wholroyd.jinja
+        # zardoy.fix-all-json
+        # bazelbuild.vscode-bazel
+        # aykutsarac.jsoncrack-vscode
+        davidanson.vscode-markdownlint
+        ms-dotnettools.csharp
+        ritwickdey.liveserver
+        # tim-koehler.helm-intellisense
+        golang.go
+        oderwat.indent-rainbow
+        redhat.vscode-yaml
+        # shaimendel.kubernetesapply
+        ms-kubernetes-tools.vscode-kubernetes-tools
+        # mitchdenny.ecdc
+        # doggy8088.k8s-snippets
+        ms-toolsai.jupyter-keymap
+        ms-toolsai.vscode-jupyter-cell-tags
+        ms-toolsai.vscode-jupyter-slideshow
+        ms-toolsai.jupyter-renderers
+        eamodio.gitlens
+        bierner.markdown-mermaid
+        ms-toolsai.jupyter
+        # pomdtr.excalidraw-editor
+        ms-azuretools.vscode-docker
+        # redhat.ansible
+        timonwong.shellcheck
+        ms-python.python
+        ms-vsliveshare.vsliveshare
+        ms-python.vscode-pylance
+        redhat.vscode-xml
+        github.copilot
+        ms-vscode.makefile-tools
+        yzhang.markdown-all-in-one
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        # {
+        #   name = "nixfmt-vscode";
+        #   publisher = "brettm12345";
+        #   version = "0.0.1";
+        #   sha256 = "sha256-8yglQDUc0CXG2EMi2/HXDJsxmXJ4YHvjNjTMnQwrgx8=";
+        # },
+        {
+          name = "font-preview";
+          publisher = "ctcuff";
+          version = "2.2.1";
+          sha256 = "sha256-n89jwcTnuxMhs21wG9F6a8bYeNDQGx2yptYCcUH9R+o=";
+        }
+      ];
+    mutableExtensionsDir = false;
   };
 }
