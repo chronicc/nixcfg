@@ -127,8 +127,8 @@ in {
 
         battery = {
           states = {
-            good = 95;
-            critical = 15;
+            good = 90;
+            critical = 10;
           };
           format = "{icon}";
           format-icons = [

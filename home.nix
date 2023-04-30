@@ -32,6 +32,7 @@
       bemenu
       brave
       docker
+      fff
       font-manager
       minikube
       neofetch

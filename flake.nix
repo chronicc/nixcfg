@@ -33,6 +33,8 @@
           inherit system;
           modules = [
             ./configuration.nix
+            ./greetd
+            ./sway
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
@@ -42,6 +44,7 @@
                   ./dunst.nix
                   ./home.nix
                   ./kitty.nix
+                  ./swaylock.nix
                   ./waybar
                 ];
               };

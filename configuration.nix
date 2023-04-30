@@ -43,7 +43,6 @@
 
   environment = {
     etc = {
-      "greetd/greeter.jpg".source = ./greeter.jpg;
     };
     systemPackages = with pkgs; [
       bottom
@@ -146,10 +145,6 @@
       # enableSSHSupport = true;
     };
     mtr.enable = true;
-    regreet = {
-      enable = true;
-      settings = ./dotfiles/regreet/regreet.toml;
-    };
     ssh.startAgent = true;
   };
 
@@ -157,7 +152,10 @@
     rtkit = {
       enable = true;
     };
-    pam.services.chronicc.enableGnomeKeyring = true;
+    pam.services = {
+      chronicc.enableGnomeKeyring = true;
+      swaylock = {};
+    };
     polkit = {
       enable = true;
     };
@@ -177,10 +175,6 @@
     };
     blueman.enable = true;
     gnome.gnome-keyring.enable = true;
-    greetd = {
-      enable = true;
-      restart = true;
-    };
     illum.enable = true;
     locate = {
       enable = true;
