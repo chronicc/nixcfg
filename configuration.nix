@@ -138,6 +138,9 @@
       packageOverrides = pkgs: {
         vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
       };
+      permittedInsecurePackages = [
+        "electron-21.4.0" # obsidian in nixpkgs-unstable
+      ];
     };
     overlays = [
       (self: super: {

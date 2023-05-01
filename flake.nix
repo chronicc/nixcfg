@@ -45,7 +45,7 @@
                   ./home.nix
                   ./kitty.nix
                   ./matrix.nix
-                  # ./obsidian.nix
+                  ./obsidian.nix
                   ./swaybg.nix
                   ./swaylock.nix
                   ./waybar
