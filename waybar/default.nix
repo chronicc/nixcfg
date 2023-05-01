@@ -35,6 +35,7 @@ in {
         ];
 
         "wlr/workspaces" = {
+          on-click = "activate";
           persistent_workspaces = {
             "1" = [];
             "2" = [];

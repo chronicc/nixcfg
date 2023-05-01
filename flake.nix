@@ -44,6 +44,8 @@
                   ./dunst.nix
                   ./home.nix
                   ./kitty.nix
+                  ./matrix.nix
+                  # ./obsidian.nix
                   ./swaybg.nix
                   ./swaylock.nix
                   ./waybar
