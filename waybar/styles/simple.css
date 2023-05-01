@@ -15,7 +15,7 @@ window#waybar {
 }
 
 #clock {
-  margin: 0 24px;
+  margin: 0 32px;
 }
 
 #cpu {
@@ -72,9 +72,7 @@ window#waybar {
   margin: 0 4px;
 }
 
-#workspaces {
-  margin: 0 24px;
-}
+#workspaces {}
 
 #workspaces button {
   color: #52555b;

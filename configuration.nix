@@ -22,7 +22,13 @@
       systemd.enable = true;
     };
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "boot.shell_on_fail" "i915.force_probe=46a6" "quiet" ];
+    kernelParams = [
+      "boot.shell_on_fail"
+      "i915.force_probe=46a6"
+      "quiet"
+      "tuxedo_keyboard.brightness=255"
+      "tuxedo_keyboard.mode=0"
+    ];
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
@@ -48,10 +54,8 @@
       bottom
       eww-wayland
       git
-      # hyprpaper
       killall
       pciutils
-      swaybg
       usbutils
       vim
       wget
@@ -94,6 +98,7 @@
         vaapiIntel
       ];
     };
+    tuxedo-keyboard.enable = true;
   };
 
   i18n = {
@@ -106,7 +111,11 @@
 
   networking = {
     hostName = "libre";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      insertNameservers = ["8.8.8.8" "8.8.4.4"];
+    };
+    wireless.userControlled.enable = true;
   };
 
   nix = {
@@ -153,7 +162,7 @@
       enable = true;
     };
     pam.services = {
-      chronicc.enableGnomeKeyring = true;
+      gnome_keyring.enableGnomeKeyring = true;
       swaylock = {};
     };
     polkit = {
@@ -221,7 +230,7 @@
   };
 
   xdg = {
-    autostart.enable = true;
+    autostart.enable = false;
     mime = {
       defaultApplications = {
         "text/html" = "brave.desktop";

@@ -15,6 +15,7 @@
     settings = {
       background_opacity = "0.9";
       enable_audio_bell = "no";
+      focus_follows_mouse = "no";
       placement_stragegy = "top-left";
       scrollback_lines = "5000";
       touch_scroll_multiplier = "4.0";

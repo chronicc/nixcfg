@@ -35,26 +35,25 @@ in {
         ];
 
         "wlr/workspaces" = {
-          disable-scroll = true;
-          format = "{icon}";
-          on-click = "activate";
-          format-icons = {
-            "1" = "󰲠";
-            "2" = "󰲢";
-            "3" = "󰲤";
-            "4" = "󰲦";
-            "5" = "󰲨";
-            "6" = "󰲪";
-            "7" = "󰲬";
-            "8" = "󰲮";
-            "9" = "󰲰";
+          persistent_workspaces = {
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+            "10" = [];
           };
+          sort-by-number = true;
         };
 
         bluetooth = {
           format = ""; # nf-mdi-bluetooth (f293)
           format-off = ""; # nf-mdi-bluetooth_off (f294)
-          on-click-right = "blueman-manager";
+          on-click = "blueman-manager";
           tooltip = true;
           tooltip-format = "{device_enumerate}";
         };
@@ -86,7 +85,7 @@ in {
           ];
           format-wifi = "{icon}";
           interval = 5;
-          on-click-right = "nm-connection-editor";
+          on-click = "nm-connection-editor";
           tooltip-format = "{ifname}: {ipaddr}/{cidr} -> {gwaddr}";
           tooltip-format-wifi = "Name: {essid}\nFrequency: {frequency}Ghz\nSignal: {signalStrength}%\n\nInterface: {ifname}\nAddress: {ipaddr}/{cidr}\nGateway: {gwaddr}\n\n {bandwidthUpBytes}\n {bandwidthDownBytes}";
         };
