@@ -52,7 +52,6 @@
     };
     systemPackages = with pkgs; [
       bottom
-      eww-wayland
       git
       killall
       pciutils

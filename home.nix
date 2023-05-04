@@ -34,16 +34,19 @@
       docker
       fff
       font-manager
+      gnumake
       minikube
       neofetch
       networkmanagerapplet
       nextcloud-client
       nixfmt # vscode
+      openlens
       pamixer
       pavucontrol
       poetry
       slack
       spotify
+      tealdeer
       tig
       terraform
     ];

@@ -34,6 +34,7 @@
           modules = [
             ./configuration.nix
             ./greetd
+            ./printers.nix
             ./sway
 
             home-manager.nixosModules.home-manager {
@@ -46,6 +47,7 @@
                   ./kitty.nix
                   ./matrix.nix
                   ./obsidian.nix
+                  ./office.nix
                   ./swaybg.nix
                   ./swaylock.nix
                   ./waybar
