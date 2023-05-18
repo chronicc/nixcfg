@@ -53,6 +53,7 @@
     systemPackages = with pkgs; [
       bottom
       git
+      git-lfs
       killall
       pciutils
       usbutils
@@ -109,6 +110,9 @@
   };
 
   networking = {
+    extraHosts = ''
+      127.0.0.1 my-app-frontend.local my-app-backend.local
+    '';
     hostName = "libre";
     networkmanager = {
       enable = true;
@@ -116,6 +120,7 @@
     };
     wireless.userControlled.enable = true;
   };
+
 
   nix = {
     gc = {
@@ -223,13 +228,15 @@
   time.timeZone = "Europe/Berlin";
 
   users.users.chronicc = {
-    extraGroups = [ "audio" "lp" "networkmanager" "video" "wheel" ];
+    extraGroups = [ "audio" "docker" "lp" "networkmanager" "video" "wheel" ];
     initialPassword = "password";
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
       "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBPjRqwfLVi3GXXN97ZlJGdefYv2/HG6iTKOeG+Yqa+1qM82Y/MLyzrNTS1+wlmIB9fPBW3IsIhJtxR9Rw8cj65c= hello@chroni.cc"
     ];
   };
+
+  virtualisation.docker.enable = true;
 
   xdg = {
     autostart.enable = false;

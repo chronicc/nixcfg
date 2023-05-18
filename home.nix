@@ -29,17 +29,24 @@
     homeDirectory = "/home/chronicc";
     packages = with pkgs; [
       awscli2
+      aws-nuke
       bemenu
       brave
+      cinnamon.nemo
       docker
       fff
       font-manager
+      git-remote-codecommit
       gnumake
+      helmfile
+      kubectl
+      kubernetes-helm
       minikube
       neofetch
       networkmanagerapplet
       nextcloud-client
       nixfmt # vscode
+      nodejs
       openlens
       pamixer
       pavucontrol
@@ -49,6 +56,8 @@
       tealdeer
       tig
       terraform
+      yamllint
+      yq-go
     ];
     pointerCursor = {
       gtk.enable = true;
