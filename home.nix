@@ -218,6 +218,12 @@
           version = "2.2.1";
           sha256 = "sha256-n89jwcTnuxMhs21wG9F6a8bYeNDQGx2yptYCcUH9R+o=";
         }
+        {
+          name = "yuck";
+          publisher = "eww-yuck";
+          version = "0.0.3";
+          sha256 = "sha256-DITgLedaO0Ifrttu+ZXkiaVA7Ua5RXc4jXQHPYLqrcM=";
+        }
       ];
     mutableExtensionsDir = false;
   };
