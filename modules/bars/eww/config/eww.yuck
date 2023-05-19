@@ -1,0 +1,187 @@
+(defwindow sidebar-right
+  :monitor 0
+  :exclusive true
+  :focusable false
+  :geometry
+    (geometry
+      :anchor "center right"
+      :height "100%"
+      :width "30px"
+      :x "0"
+      :y "0")
+  (bar-right))
+
+(defwindow sidebar-left
+  :monitor 0
+  :exclusive true
+  :focusable false
+  :geometry
+    (geometry
+      :anchor "center left"
+      :height "100%"
+      :width "30px"
+      :x "0"
+      :y "0")
+  (bar-left))
+
+(defwidget bar-right []
+  (box
+    :class "bar"
+    :orientation "v"
+    :valign "center"
+    (resource_preview)))
+
+(defwidget bar-left []
+  (box
+    :class "bar"
+    :orientation "v"
+    :valign "center"
+    ""))
+
+
+
+(defvar GB 1073741824)
+
+
+
+(defwidget resource_preview []
+  (eventbox
+    :onhover "${EWW_CMD} open resource_ctl"
+    :onhoverlost "${EWW_CMD} close resource_ctl"
+    (box
+      :orientation "v"
+      :valign "center"
+      :class "resource-preview"
+      (resource_circle :class "display-small" :value "${EWW_CPU.avg}" :thickness 4)
+      (resource_circle :class "display-small" :value "${EWW_RAM.used_mem_perc}" :thickness 4)
+      (resource_circle :class "display-small" :value "${EWW_DISK["/"].used_perc}" :thickness 4))))
+
+(defwidget resource_circle [class thickness value]
+  (box
+    :class class
+    (circular-progress
+      :class "circular-progress"
+      :clockwise true
+      :start-at 0
+      :thickness thickness
+      :value value)))
+
+(defwidget resource_circle_with_percent [class thickness value]
+  (overlay
+    :halign "start"
+    (resource_circle
+      :class class
+      :thickness thickness
+      :value value)
+    (label
+      :text "${round(value, 0)}%")))
+
+(defwidget resource_circle_with_gb [class thickness title value used total]
+  (overlay
+    :halign "start"
+    (resource_circle
+      :class class
+      :thickness thickness
+      :value value)
+    (box
+      :halign "center"
+      :orientation "v"
+      :space-evenly false
+      :valign "center"
+      (label
+        :halign "start"
+        :style "font-size: 1.2em; font-weight: bold; padding-bottom: 0.8em;"
+        :text "${title}")
+      (box
+        :halign "center"
+        (label
+          :halign "start"
+          :text "max:\\nused:")
+        (label
+          :halign "start"
+          :text "${round(total, 1)}GBi\\n${round(used, 1)}GBi")))))
+
+(defwidget cpu_overview []
+  (box
+    :class "panel"
+    :halign "fill"
+    :hexpand true
+    :space-evenly false
+    (box
+      :halign "start"
+      :orientation "v"
+      :style "padding-right: 1em;"
+      (for core in "${EWW_CPU.cores}"
+        (label
+          :halign "start"
+          :text "${core.core}")))
+    (box
+      :halign "fill"
+      :hexpand true
+      :orientation "v"
+      (for core in "${EWW_CPU.cores}"
+        (progress
+          :orientation "h"
+          :value "${core.usage}"
+          :valign "center")))))
+
+(defwidget mem_overview []
+  (box
+    :class "panel"
+    :halign "start"
+    (box
+      (resource_circle_with_gb
+        :class "display-big"
+        :thickness 20
+        :title "memory"
+        :total "${EWW_RAM.total_mem / GB}"
+        :used "${EWW_RAM.used_mem / GB}"
+        :value "${EWW_RAM.used_mem_perc}"))))
+
+(defwidget disc_overview []
+  (box
+    :class "panel"
+    :halign "start"
+    (box
+      (resource_circle_with_gb
+        :class "display-big"
+        :thickness 20
+        :title "disk"
+        :total "${EWW_DISK["/"].total / GB}"
+        :used "${EWW_DISK["/"].used / GB}"
+        :value "${EWW_DISK["/"].used_perc}"))))
+
+(defwidget swap_overview []
+  (box
+    :class "panel"
+    :halign "start"
+    (box
+      (resource_circle_with_gb
+        :class "display-big"
+        :thickness 20
+        :title "swap"
+        :total "${EWW_RAM.total_swap / GB}"
+        :used "${(EWW_RAM.total_swap - EWW_RAM.free_swap) / GB}"
+        :value "${(EWW_RAM.total_swap - EWW_RAM.free_swap) * 100 / EWW_RAM.total_swap}"))))
+
+(defwidget resource_overview []
+  (box
+    :class "overview"
+    :orientation "v"
+    :space-evenly false
+    :valign "start"
+    (cpu_overview)
+    (box
+      :halign "start"
+      (mem_overview)
+      (swap_overview)
+      (disc_overview))))
+
+(defwindow resource_ctl
+  :monitor 0
+  :exclusive false
+  :focusable false
+	:geometry
+    (geometry
+      :anchor "center right")
+  (resource_overview))

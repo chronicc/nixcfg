@@ -10,7 +10,7 @@
 }
 
 window#waybar {
-  background: #303030;
+  background: black;
   color: #ccc;
 }
 
@@ -65,14 +65,16 @@ window#waybar {
 }
 
 #pulseaudio {
-  margin: 0 4px;
+  margin: 0 32px 0 4px;
 }
 
 #tray {
   margin: 0 4px;
 }
 
-#workspaces {}
+#workspaces {
+  margin: 0 32px;
+}
 
 #workspaces button {
   color: #52555b;

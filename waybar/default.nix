@@ -20,9 +20,7 @@ in {
         ];
 
         modules-center = [
-          "cpu"
-          "memory"
-          "disk"
+          "clock"
         ];
 
         modules-right = [
@@ -31,7 +29,6 @@ in {
           "bluetooth"
           "battery"
           "pulseaudio"
-          "clock"
         ];
 
         "wlr/workspaces" = {
@@ -60,8 +57,8 @@ in {
         };
 
         clock = {
-          format = "{:%a %d.%m.  %H:%M}";
-          interval = 5;
+          format = "{:%a %d.%m.%Y  %H:%M:%S}";
+          interval = 1;
           tooltip = false;
         };
 
