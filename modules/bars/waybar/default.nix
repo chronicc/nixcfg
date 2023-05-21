@@ -49,8 +49,8 @@ in {
         };
 
         bluetooth = {
-          format = ""; # nf-mdi-bluetooth (f293)
-          format-off = ""; # nf-mdi-bluetooth_off (f294)
+          format = "󰂯"; # nf-md-bluetooth
+          format-off = "󰂲"; # nf-md-bluetooth_off
           on-click = "blueman-manager";
           tooltip = true;
           tooltip-format = "{device_enumerate}";
@@ -129,16 +129,16 @@ in {
           };
           format = "{icon}";
           format-icons = [
-            "" # nf-mdi-battery_10 (f579)
-            "" # nf-mdi-battery_20 (f57a)
-            "" # nf-mdi-battery_30 (f57b)
-            "" # nf-mdi-battery_40 (f57c)
-            "" # nf-mdi-battery_50 (f57d)
-            "" # nf-mdi-battery_60 (f57e)
-            "" # nf-mdi-battery_70 (f57f)
-            "" # nf-mdi-battery_80 (f580)
-            "" # nf-mdi-battery_90 (f581)
-            "" # nf-mdi-battery (f578)
+            "󰁺" # nf-md-battery_10
+            "󰁻" # nf-md-battery_20
+            "󰁼" # nf-md-battery_30
+            "󰁽" # nf-md-battery_40
+            "󰁾" # nf-md-battery_50
+            "󰁿" # nf-md-battery_60
+            "󰂀" # nf-md-battery_70
+            "󰂁" # nf-md-battery_80
+            "󰂂" # nf-md-battery_90
+            "󰁹" # nf-md-battery
           ];
           tooltip = true;
           tooltip-format = "Capacity: {capacity}%\n{timeTo}";
