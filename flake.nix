@@ -43,6 +43,7 @@
               home-manager.users.chronicc = {
                 imports = [
                   ./modules/bars/eww
+                  ./modules/bars/waybar
                   ./dunst.nix
                   ./home.nix
                   ./kitty.nix
@@ -51,7 +52,6 @@
                   ./office.nix
                   ./swaybg.nix
                   ./swaylock.nix
-                  ./waybar
                 ];
               };
             }
