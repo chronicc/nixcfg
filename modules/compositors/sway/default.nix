@@ -3,6 +3,6 @@
 let
 in {
   programs.sway = {
-    enable = false;
+    enable = true;
   };
 }

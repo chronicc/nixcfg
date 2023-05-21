@@ -33,9 +33,11 @@
           inherit system;
           modules = [
             ./configuration.nix
+
+            # ./modules/compositors/sway
+
             ./greetd
             ./printers.nix
-            ./sway
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
