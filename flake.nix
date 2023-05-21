@@ -44,8 +44,11 @@
               home-manager.useUserPackages = true;
               home-manager.users.chronicc = {
                 imports = [
+                  ./modules/applications/vscode
+
                   ./modules/bars/eww
                   ./modules/bars/waybar
+
                   ./dunst.nix
                   ./home.nix
                   ./kitty.nix
