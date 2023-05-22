@@ -2,6 +2,8 @@
   description = "Central Flake Configuration";
 
   inputs = {
+    brave-src.url = "github:nixos/nixpkgs/8ad5e8132c5dcf977e308e7bf5517cc6cc0bf7d8";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +19,7 @@
     };
   };
 
-  outputs = { self, home-manager, hyprland, nixpkgs, ... }:
+  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, ... }:
     let
       system = "x86_64-linux";
 
@@ -26,12 +28,21 @@
         config.allowUnfree = true;
       };
 
+      pkgsBrave = import brave-src {
+        inherit system;
+      };
+
       lib = nixpkgs.lib;
     in {
+      overlay = self: super: {
+        brave = pkgsBrave.brave;
+      };
+
       nixosConfigurations = {
         libre = lib.nixosSystem {
           inherit system;
           modules = [
+            { nixpkgs.overlays = [ self.overlay ]; }
             ./configuration.nix
 
             # ./modules/compositors/sway
