@@ -47,27 +47,32 @@
 
             # ./modules/compositors/sway
 
-            ./greetd
-            ./printers.nix
+            ./modules/login/greetd
+
+            ./modules/peripherie/printers
 
             home-manager.nixosModules.home-manager {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.chronicc = {
                 imports = [
+                  ./home.nix
+
+                  ./modules/applications/matrix
+                  ./modules/applications/obsidian
+                  ./modules/applications/office
                   ./modules/applications/vscode
 
                   ./modules/bars/eww
                   ./modules/bars/waybar
 
-                  ./dunst.nix
-                  ./home.nix
-                  ./kitty.nix
-                  ./matrix.nix
-                  ./obsidian.nix
-                  ./office.nix
-                  ./swaybg.nix
-                  ./swaylock.nix
+                  ./modules/compositors/hyprland
+
+                  ./modules/desktop/dunst
+                  ./modules/desktop/swaybg
+                  ./modules/desktop/swaylock
+
+                  ./modules/terminals/kitty
                 ];
               };
             }

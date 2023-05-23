@@ -23,12 +23,6 @@ in {
   };
 
   home = {
-    file = {
-      ".config/hypr" = {
-        source = ./dotfiles/hypr;
-        recursive = true;
-      };
-    };
     homeDirectory = user_home_dir;
     packages = with pkgs; [
       awscli2
