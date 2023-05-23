@@ -17,6 +17,7 @@ joshuapoehls.json-escaper
 marioqueiros.camelcase
 mikestead.dotenv
 mitchdenny.ecdc
+mkhl.direnv
 ms-azuretools.vscode-docker
 ms-dotnettools.csharp
 ms-kubernetes-tools.vscode-kubernetes-tools
