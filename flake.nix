@@ -15,7 +15,7 @@
     };
 
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixpkgs-unstable";
+      url = "github:nixos/nixpkgs/nixos-23.05";
     };
   };
 
