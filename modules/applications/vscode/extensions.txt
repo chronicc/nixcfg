@@ -32,7 +32,7 @@ ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
 oderwat.indent-rainbow
 pomdtr.excalidraw-editor
-redhat.ansible
+# redhat.ansible
 redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
