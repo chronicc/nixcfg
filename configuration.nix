@@ -55,6 +55,7 @@
       git
       git-lfs
       killall
+      nix-index
       pciutils
       usbutils
       vim
