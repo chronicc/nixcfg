@@ -6,12 +6,12 @@ let
 in {
   gtk = {
     enable = true;
-    theme = {
-      name = "Canta-dark-compact";
-      package = pkgs.canta-theme;
-      # name = "Dracula";
-      # package = pkgs.dracula-theme;
-    };
+    # theme = {
+    #   # name = "Canta-dark-compact";
+    #   # package = pkgs.canta-theme;
+    #   # name = "Dracula";
+    #   # package = pkgs.dracula-theme;
+    # };
     iconTheme = {
       name = "Zafiro-icons-Dark";
       package = pkgs.zafiro-icons;
