@@ -15,15 +15,24 @@
     };
 
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-23.05";
+      url = "github:nixos/nixpkgs/nixos-unstable";
+    };
+
+    nixpkgsStable = {
+      url = "github:nixos/nixpkgs/nixos-22.11";
     };
   };
 
-  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, ... }:
+  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, nixpkgsStable, ... }:
     let
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgsStable = import nixpkgsStable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -34,7 +43,9 @@
 
       lib = nixpkgs.lib;
     in {
-      overlay = self: super: {
+
+      # Pull these packages from the stable branch
+      stablePackages = self: super: {
         brave = pkgsBrave.brave;
       };
 
@@ -42,7 +53,8 @@
         libre = lib.nixosSystem {
           inherit system;
           modules = [
-            { nixpkgs.overlays = [ self.overlay ]; }
+            { nixpkgs.overlays = [ self.stablePackages ]; }
+
             ./configuration.nix
 
             # ./modules/compositors/sway
