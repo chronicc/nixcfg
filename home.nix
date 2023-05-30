@@ -48,6 +48,7 @@ in {
       pamixer
       pavucontrol
       poetry
+      signal-desktop
       slack
       spotify
       tealdeer
