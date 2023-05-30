@@ -52,6 +52,7 @@
     };
     systemPackages = with pkgs; [
       bottom
+      dig
       git
       git-lfs
       killall

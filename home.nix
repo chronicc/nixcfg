@@ -53,6 +53,7 @@ in {
       tealdeer
       tig
       terraform
+      wl-clipboard
       yamllint
       yq-go
     ];
