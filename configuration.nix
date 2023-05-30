@@ -88,10 +88,6 @@
   ];
 
   hardware = {
-    bluetooth = {
-      enable = true;
-      powerOnBoot = true;
-    };
     opengl = {
       enable = true;
       extraPackages = with pkgs; [
@@ -191,7 +187,6 @@
         { keys = [ 123 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master 5%+ unmute'"; }
       ];
     };
-    blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     illum.enable = true;
     locate = {

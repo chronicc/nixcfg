@@ -61,6 +61,7 @@
 
             ./modules/login/greetd
 
+            ./modules/peripherie/bluetooth
             ./modules/peripherie/printers
 
             home-manager.nixosModules.home-manager {
