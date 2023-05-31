@@ -96,7 +96,6 @@
         vaapiIntel
       ];
     };
-    tuxedo-keyboard.enable = true;
   };
 
   i18n = {

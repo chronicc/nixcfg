@@ -2,7 +2,9 @@
 
 let
 in {
-
+  hardware = {
+    tuxedo-keyboard.enable = true;
+  };
 }
 
 # [14:     wl_keyboard] key: serial: 34308; time: 16445928; key: 133; state: 1 (pressed)
