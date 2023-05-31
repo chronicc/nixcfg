@@ -15,15 +15,15 @@
     };
 
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "github:nixos/nixpkgs/nixos-23.05";
     };
 
-    nixpkgsStable = {
-      url = "github:nixos/nixpkgs/nixos-22.11";
+    nixpkgsUnstable = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
   };
 
-  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, nixpkgsStable, ... }:
+  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, nixpkgsUnstable, ... }:
     let
       system = "x86_64-linux";
 
@@ -32,7 +32,7 @@
         config.allowUnfree = true;
       };
 
-      pkgsStable = import nixpkgsStable {
+      pkgsUnstable = import nixpkgsUnstable {
         inherit system;
         config.allowUnfree = true;
       };
