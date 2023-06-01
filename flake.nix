@@ -57,6 +57,8 @@
 
             ./configuration.nix
 
+            ./modules/applications/chromium
+
             # ./modules/compositors/sway
 
             ./modules/login/greetd
