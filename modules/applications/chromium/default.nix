@@ -16,7 +16,6 @@ in {
     enable = true;
     extensions = [
       "bhchdcejhohfmigjafbampogmaanbfkg" # User Agent Switcher
-      "chlffgpmiacpedhhbkiomidkjlcfhogd" # pushbullet
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
       "gcbommkclmclpchllfjekcdonpmejbdp" # https everywhere
       "mbniclmhobmnbdlbpiphghaielnnpgdp" # lightshot
