@@ -89,6 +89,7 @@
                   ./modules/desktop/swaylock
 
                   ./modules/terminals/kitty
+                  ./modules/terminals/terminator
                 ];
               };
             }

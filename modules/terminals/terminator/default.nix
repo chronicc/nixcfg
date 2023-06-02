@@ -1,0 +1,68 @@
+{ config, lib, pkgs, ... }:
+
+let
+  font_family = "SauceCodePro Nerd Font Propo Medium";
+  font_size   = "12";
+in {
+  home.packages = with pkgs; [
+    terminator
+  ];
+
+  home.file = {
+    ".config/terminator/config" = {
+      text = ''
+        [global_config]
+          always_split_with_profile = True
+          borderless = True
+          enabled_plugins = ActivityWatch,
+          handle_size = 1
+          tab_position = bottom
+          title_font = ${font_family} ${font_size}
+          title_use_system_font = False
+          window_state = maximise
+        [keybindings]
+          help = <Alt>h
+          hide_window = <Alt>v
+          next_profile = <Primary><Alt>p
+        [layouts]
+          [[default]]
+            [[[child1]]]
+              parent = window0
+              profile = default
+              type = Terminal
+            [[[window0]]]
+              parent = ""
+              type = Window
+        [plugins]
+        [profiles]
+          [[default]]
+            background_color = "#27292a"
+            background_darkness = 0.92
+            background_type = transparent
+            cursor_color = "#4e9a06"
+            font = ${font_family} ${font_size}
+            foreground_color = "#d3d7cf"
+            icon_bell = False
+            login_shell = True
+            scrollback_infinite = True
+            scrollbar_position = hidden
+            show_titlebar = False
+            use_system_font = False
+          [[light]]
+            background_color = "#cecbb4"
+            background_darkness = 0.92
+            background_type = transparent
+            cursor_color = "#c4a000"
+            font = ${font_family} ${font_size}
+            foreground_color = "#2e3436"
+            icon_bell = False
+            login_shell = True
+            palette = "#fbf1c7:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#7c6f64:#928374:#9d0006:#79740e:#b57614:#076678:#8f3f71:#427b58:#3c3836"
+            scrollback_infinite = True
+            scrollbar_position = hidden
+            show_titlebar = False
+            use_system_font = False
+      '';
+    };
+  };
+}
