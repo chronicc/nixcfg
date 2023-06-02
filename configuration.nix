@@ -64,7 +64,7 @@
       xdg-utils
     ];
     variables = {
-      DEFAULT_BROWSER = "${pkgs.brave}";
+      DEFAULT_BROWSER = "${pkgs.chromium}";
       NIXOS_OZONE_WL = "1";
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
       # XKB_DEFAULT_RULES = "";
