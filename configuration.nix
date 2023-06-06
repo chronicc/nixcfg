@@ -26,8 +26,6 @@
       "boot.shell_on_fail"
       "i915.force_probe=46a6"
       "quiet"
-      "tuxedo_keyboard.brightness=255"
-      "tuxedo_keyboard.mode=0"
     ];
     loader = {
       efi.canTouchEfiVariables = true;

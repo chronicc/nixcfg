@@ -2,6 +2,13 @@
 
 let
 in {
+  boot = {
+    kernelParams = [
+      "tuxedo_keyboard.brightness=255"
+      "tuxedo_keyboard.mode=0"
+    ];
+  };
+
   hardware = {
     tuxedo-keyboard.enable = true;
   };
