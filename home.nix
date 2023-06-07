@@ -138,6 +138,9 @@ in {
       set undofile
       set undolevels=1000
     '';
+    plugins = with pkgs.vimPlugins; [
+      vim-polyglot
+    ];
     viAlias = true;
     vimAlias = true;
   };
