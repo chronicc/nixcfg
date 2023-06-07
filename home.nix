@@ -48,6 +48,7 @@ in {
       pamixer
       pavucontrol
       poetry
+      ranger
       signal-desktop
       slack
       spotify
