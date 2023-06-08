@@ -1,3 +1,6 @@
+(include "./notification_overlay.yuck")
+(include "./resource_overlay.yuck")
+
 (defwindow sidebar-right
   :monitor 0
   :exclusive true
@@ -100,88 +103,3 @@
         (label
           :halign "start"
           :text "${round(total, 1)}GBi\\n${round(used, 1)}GBi")))))
-
-(defwidget cpu_overview []
-  (box
-    :class "panel"
-    :halign "fill"
-    :hexpand true
-    :space-evenly false
-    (box
-      :halign "start"
-      :orientation "v"
-      :style "padding-right: 1em;"
-      (for core in "${EWW_CPU.cores}"
-        (label
-          :halign "start"
-          :text "${core.core}")))
-    (box
-      :halign "fill"
-      :hexpand true
-      :orientation "v"
-      (for core in "${EWW_CPU.cores}"
-        (progress
-          :orientation "h"
-          :value "${core.usage}"
-          :valign "center")))))
-
-(defwidget mem_overview []
-  (box
-    :class "panel"
-    :halign "start"
-    (box
-      (resource_circle_with_gb
-        :class "display-big"
-        :thickness 20
-        :title "memory"
-        :total "${EWW_RAM.total_mem / GB}"
-        :used "${EWW_RAM.used_mem / GB}"
-        :value "${EWW_RAM.used_mem_perc}"))))
-
-(defwidget disc_overview []
-  (box
-    :class "panel"
-    :halign "start"
-    (box
-      (resource_circle_with_gb
-        :class "display-big"
-        :thickness 20
-        :title "disk"
-        :total "${EWW_DISK["/"].total / GB}"
-        :used "${EWW_DISK["/"].used / GB}"
-        :value "${EWW_DISK["/"].used_perc}"))))
-
-(defwidget swap_overview []
-  (box
-    :class "panel"
-    :halign "start"
-    (box
-      (resource_circle_with_gb
-        :class "display-big"
-        :thickness 20
-        :title "swap"
-        :total "${EWW_RAM.total_swap / GB}"
-        :used "${(EWW_RAM.total_swap - EWW_RAM.free_swap) / GB}"
-        :value "${(EWW_RAM.total_swap - EWW_RAM.free_swap) * 100 / EWW_RAM.total_swap}"))))
-
-(defwidget resource_overview []
-  (box
-    :class "overview"
-    :orientation "v"
-    :space-evenly false
-    :valign "start"
-    (cpu_overview)
-    (box
-      :halign "start"
-      (mem_overview)
-      (swap_overview)
-      (disc_overview))))
-
-(defwindow resource_ctl
-  :monitor 0
-  :exclusive false
-  :focusable false
-	:geometry
-    (geometry
-      :anchor "center right")
-  (resource_overview))

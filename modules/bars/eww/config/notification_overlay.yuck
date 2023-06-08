@@ -1,0 +1,31 @@
+(deflisten music
+  :initial ""
+  `playerctl --follow metadata --format "Playing {{artist}} - {{title}}" || true`)
+
+(defwindow notification_overlay
+  :monitor 0
+  :exclusive false
+  :focusable true
+  :geometry
+    (geometry
+      :anchor "center center")
+  (notification_widget))
+
+(defwidget notification_widget []
+  (box
+    :class "overlay"
+    :orientation "v"
+    :space-evenly false
+    :valign "start"
+    "Notifications"
+    (scroll
+      :hscroll true
+      :vscroll false
+      (music_list))))
+
+(defwidget music_list []
+  (box
+    "List"
+    (label
+      :halign "start"
+      :text "${music}")))
