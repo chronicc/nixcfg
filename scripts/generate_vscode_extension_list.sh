@@ -107,10 +107,8 @@ do
     OWNER=$(echo "$line" | cut -d. -f1)
     EXT=$(echo "$line" | cut -d. -f2)
 
-    get_vsixpkg "$OWNER" "$EXT" &
+    get_vsixpkg "$OWNER" "$EXT"
 done < "$INPUT"
-
-wait
 
 # Close off the nix expression.
 printf '  ];\n}\n'
