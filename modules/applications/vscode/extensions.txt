@@ -9,7 +9,6 @@ ctcuff.font-preview
 davidanson.vscode-markdownlint
 dhoeric.ansible-vault
 diego-vieira.codeception-snippets
-eamodio.gitlens
 eww-yuck.yuck
 github.copilot
 golang.go
