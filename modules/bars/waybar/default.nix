@@ -13,6 +13,7 @@ in {
     settings = [
       {
         layer = "top";
+        output = "eDP-1";
         position = "top";
 
         modules-left = [
