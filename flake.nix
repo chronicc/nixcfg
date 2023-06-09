@@ -21,9 +21,13 @@
     nixpkgsUnstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
+
+    nixpkgsMaster = {
+      url = "github:nixos/nixpkgs/master";
+    };
   };
 
-  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, nixpkgsUnstable, ... }:
+  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
     let
       system = "x86_64-linux";
 
@@ -33,6 +37,11 @@
       };
 
       pkgsUnstable = import nixpkgsUnstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+
+      pkgsMaster = import nixpkgsMaster {
         inherit system;
         config.allowUnfree = true;
       };
@@ -49,11 +58,16 @@
         brave = pkgsBrave.brave;
       };
 
+      # Pull these packages from the master branch
+      masterPackages = self: supre: {
+        vscode = pkgsMaster.vscode;
+      };
+
       nixosConfigurations = {
         libre = lib.nixosSystem {
           inherit system;
           modules = [
-            { nixpkgs.overlays = [ self.stablePackages ]; }
+            { nixpkgs.overlays = [ self.stablePackages self.masterPackages ]; }
 
             ./configuration.nix
 
