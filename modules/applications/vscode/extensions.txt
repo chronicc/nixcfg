@@ -9,6 +9,7 @@ ctcuff.font-preview
 davidanson.vscode-markdownlint
 dhoeric.ansible-vault
 diego-vieira.codeception-snippets
+esbenp.prettier-vscode
 eww-yuck.yuck
 github.copilot
 golang.go
@@ -31,11 +32,11 @@ ms-vscode.makefile-tools
 ms-vsliveshare.vsliveshare
 oderwat.indent-rainbow
 pomdtr.excalidraw-editor
-# redhat.ansible
 redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
 ritwickdey.liveserver
+rust-lang.rust-analyzer
 shaimendel.kubernetesapply
 tim-koehler.helm-intellisense
 timonwong.shellcheck

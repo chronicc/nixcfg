@@ -67,6 +67,12 @@
       sha256 = "sha256-sdHGHxfeMdaqXfWrX8LrwKB4QGdoCtopcbS6voZ2Fjo=";
     }
     {
+      name = "prettier-vscode";
+      publisher = "esbenp";
+      version = "9.13.0";
+      sha256 = "sha256-Iqz1O6odSzAfojCgGDwDA1YtnWU5Ei7vx9Qt25/1SLw=";
+    }
+    {
       name = "yuck";
       publisher = "eww-yuck";
       version = "0.0.3";
@@ -111,8 +117,8 @@
     {
       name = "direnv";
       publisher = "mkhl";
-      version = "0.12.2";
-      sha256 = "sha256-SF+FviaszK9TIJxLiVpIwzWXqCK2HvcxJ+9g417UarY=";
+      version = "0.13.0";
+      sha256 = "sha256-KdLJ7QTi9jz+JbbQuhXqyE3WV9oF+wyC/9ZJ/XTFOYc=";
     }
     {
       name = "vscode-docker";
@@ -129,8 +135,8 @@
     {
       name = "vscode-kubernetes-tools";
       publisher = "ms-kubernetes-tools";
-      version = "1.3.12";
-      sha256 = "sha256-e/PPlIIwVFzBP+qTe2w+i7J+9/p9Z/01jv7IN70E3xA=";
+      version = "1.3.13";
+      sha256 = "sha256-47GktYxxhXkRBLs9E4a7pku070cnHN6jLjaZvzA3IZM=";
     }
     {
       name = "python";
@@ -183,8 +189,8 @@
     {
       name = "vsliveshare";
       publisher = "ms-vsliveshare";
-      version = "1.0.5864";
-      sha256 = "sha256-UdI9iRvI/BaZj8ihFBCTFJGLZXxS3CtmoDw8JBPbzLY=";
+      version = "1.0.5873";
+      sha256 = "sha256-pwbabpGORQP8feMUgD3MU7frc0vp5y/epEbtY8THq7A=";
     }
     {
       name = "indent-rainbow";
@@ -221,6 +227,12 @@
       publisher = "ritwickdey";
       version = "5.7.9";
       sha256 = "sha256-w0CYSEOdltwMFzm5ZhOxSrxqQ1y4+gLfB8L+EFFgzDc=";
+    }
+    {
+      name = "rust-analyzer";
+      publisher = "rust-lang";
+      version = "0.4.1545";
+      sha256 = "sha256-+keOc+NwEO3p3u0xmbaLugFsf/pH32pmnFCvCB5f5X0=";
     }
     {
       name = "kubernetesapply";
