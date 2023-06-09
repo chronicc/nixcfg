@@ -55,6 +55,7 @@ in {
       tealdeer
       tig
       terraform
+      velero
       wl-clipboard
       yamllint
       yq-go
