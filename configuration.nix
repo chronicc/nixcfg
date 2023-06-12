@@ -62,8 +62,9 @@
       xdg-utils
     ];
     variables = {
-      DEFAULT_BROWSER = "${pkgs.chromium}";
+      BROWSER = "chromium";
       NIXOS_OZONE_WL = "1";
+      TERMINAL = "terminator";
       VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
       # XKB_DEFAULT_RULES = "";
       XKB_DEFAULT_MODEL = "pc105";
