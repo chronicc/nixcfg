@@ -73,9 +73,7 @@
 
             ./modules/applications/chromium
 
-            # ./modules/compositors/sway
-
-            ./modules/login/greetd
+            # ./modules/login/greetd
 
             ./modules/peripherie/bluetooth
             ./modules/peripherie/keyboard
@@ -97,6 +95,7 @@
                   ./modules/bars/waybar
 
                   ./modules/compositors/hyprland
+                  ./modules/compositors/sway
 
                   ./modules/desktop/dunst
                   ./modules/desktop/swaybg
