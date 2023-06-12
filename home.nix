@@ -35,6 +35,7 @@ in {
       fff
       font-manager
       git-remote-codecommit
+      gnome.simple-scan
       gnumake
       helmfile
       kubectl
