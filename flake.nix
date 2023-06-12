@@ -75,7 +75,7 @@
 
             # ./modules/compositors/sway
 
-            ./modules/login/greetd
+            # ./modules/login/greetd
 
             ./modules/peripherie/bluetooth
             ./modules/peripherie/keyboard
@@ -97,6 +97,7 @@
                   ./modules/bars/waybar
 
                   ./modules/compositors/hyprland
+                  ./modules/compositors/weston
 
                   ./modules/desktop/dunst
                   ./modules/desktop/swaybg
