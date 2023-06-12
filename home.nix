@@ -161,4 +161,6 @@ in {
       show-all-if-ambiguous = true;
     };
   };
+
+  xdg.configFile."wallpaper.png".source = ./wallpaper.png;
 }
