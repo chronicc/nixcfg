@@ -228,7 +228,7 @@
   time.timeZone = "Europe/Berlin";
 
   users.users.chronicc = {
-    extraGroups = [ "audio" "docker" "lp" "networkmanager" "video" "wheel" ];
+    extraGroups = [ "audio" "docker" "lp" "networkmanager" "scanner" "video" "wheel" ];
     initialPassword = "password";
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
