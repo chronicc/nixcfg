@@ -97,6 +97,7 @@
                   ./modules/bars/waybar
 
                   ./modules/compositors/hyprland
+                  ./modules/compositors/labwc
 
                   ./modules/desktop/dunst
                   ./modules/desktop/swaybg
