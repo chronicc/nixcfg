@@ -232,7 +232,7 @@
       name = "rust-analyzer";
       publisher = "rust-lang";
       version = "0.4.1545";
-      sha256 = "sha256-+keOc+NwEO3p3u0xmbaLugFsf/pH32pmnFCvCB5f5X0=";
+      sha256 = "sha256-yXuePGfoBfHxJXGIGJHTqEwYwYF2qia+7kvixEYB+Ng=";
     }
     {
       name = "kubernetesapply";
