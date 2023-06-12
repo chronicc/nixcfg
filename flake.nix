@@ -54,20 +54,19 @@
     in {
 
       # Pull these packages from the stable branch
-      stablePackages = self: super: {
+      overridePackages = self: super: {
         brave = pkgsBrave.brave;
-      };
-
-      # Pull these packages from the master branch
-      masterPackages = self: supre: {
-        vscode = pkgsMaster.vscode;
+        vscode = pkgsUnstable.vscode;
       };
 
       nixosConfigurations = {
         libre = lib.nixosSystem {
           inherit system;
           modules = [
-            { nixpkgs.overlays = [ self.stablePackages self.masterPackages ]; }
+            {
+              nixpkgs.overlays = [ self.overridePackages ];
+              nixpkgs.config.allowUnfree = true;
+            }
 
             ./configuration.nix
 
@@ -75,7 +74,7 @@
 
             # ./modules/compositors/sway
 
-            ./modules/login/greetd
+            # ./modules/login/greetd
 
             ./modules/peripherie/bluetooth
             ./modules/peripherie/keyboard
@@ -91,16 +90,16 @@
                   ./modules/applications/matrix
                   ./modules/applications/obsidian
                   ./modules/applications/office
-                  # ./modules/applications/vscode
+                  ./modules/applications/vscode
 
-                  ./modules/bars/eww
-                  ./modules/bars/waybar
+                  # ./modules/bars/eww
+                  # ./modules/bars/waybar
 
-                  ./modules/compositors/hyprland
+                  # ./modules/compositors/hyprland
 
-                  ./modules/desktop/dunst
-                  ./modules/desktop/swaybg
-                  ./modules/desktop/swaylock
+                  # ./modules/desktop/dunst
+                  # ./modules/desktop/swaybg
+                  # ./modules/desktop/swaylock
 
                   ./modules/terminals/kitty
                   ./modules/terminals/terminator
@@ -108,9 +107,9 @@
               };
             }
 
-            hyprland.nixosModules.default {
-              programs.hyprland.enable = true;
-            }
+            #hyprland.nixosModules.default {
+            #  programs.hyprland.enable = true;
+            #}
           ];
         };
       };
