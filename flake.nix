@@ -91,7 +91,7 @@
                   ./modules/applications/matrix
                   ./modules/applications/obsidian
                   ./modules/applications/office
-                  ./modules/applications/vscode
+                  # ./modules/applications/vscode
 
                   ./modules/bars/eww
                   ./modules/bars/waybar
