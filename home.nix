@@ -25,6 +25,7 @@ in {
   home = {
     homeDirectory = user_home_dir;
     packages = with pkgs; [
+      ardour
       awscli2
       aws-nuke
       bemenu
