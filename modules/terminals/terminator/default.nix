@@ -2,7 +2,7 @@
 
 let
   font_family = "SauceCodePro Nerd Font Propo Medium";
-  font_size   = "12";
+  font_size   = "14";
 in {
   home.packages = with pkgs; [
     terminator
