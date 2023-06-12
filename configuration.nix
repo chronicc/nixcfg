@@ -242,11 +242,11 @@
     autostart.enable = false;
     mime = {
       defaultApplications = {
-        "text/html" = "brave.desktop";
-        "x-scheme-handler/http" = "brave.desktop";
-        "x-scheme-handler/https" = "brave.desktop";
-        "x-scheme-handler/about" = "brave.desktop";
-        "x-scheme-handler/unknown" = "brave.desktop";
+        "text/html" = "chromium.desktop";
+        "x-scheme-handler/http" = "chromium.desktop";
+        "x-scheme-handler/https" = "chromium.desktop";
+        "x-scheme-handler/about" = "chromium.desktop";
+        "x-scheme-handler/unknown" = "chromium.desktop";
       };
       enable = true;
     };
