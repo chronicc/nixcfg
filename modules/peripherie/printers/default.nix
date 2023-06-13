@@ -9,6 +9,7 @@ in {
     };
     printing = {
       drivers = [
+        pkgs.epson-escpr2
         pkgs.gutenprint
       ];
       enable = true;
