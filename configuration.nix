@@ -61,17 +61,6 @@
       wget
       xdg-utils
     ];
-    variables = {
-      BROWSER = "chromium";
-      NIXOS_OZONE_WL = "1";
-      TERMINAL = "terminator";
-      VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
-      # XKB_DEFAULT_RULES = "";
-      XKB_DEFAULT_MODEL = "pc105";
-      XKB_DEFAULT_LAYOUT = "de";
-      XKB_DEFAULT_VARIANT = "nodeadkeys";
-      # XKB_DEFAULT_OPTIONS = "";1
-    };
   };
 
   fonts.fonts = with pkgs; [
@@ -88,6 +77,7 @@
 
   hardware = {
     opengl = {
+      driSupport32Bit = true;
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver
@@ -133,83 +123,32 @@
     };
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-      packageOverrides = pkgs: {
-        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-      };
-      permittedInsecurePackages = [
-        "electron-21.4.0" # obsidian in nixpkgs-unstable
-      ];
-    };
-    overlays = [
-      (self: super: {
-        waybar = super.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        });
-      })
-    ];
-  };
-
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      # enableSSHSupport = true;
-    };
-    mtr.enable = true;
-    ssh.startAgent = true;
-  };
-
   security = {
-    rtkit = {
-      enable = true;
-    };
-    pam.services = {
-      gnome_keyring.enableGnomeKeyring = true;
-      swaylock = {};
-    };
-    polkit = {
-      enable = true;
-    };
     sudo = {
       wheelNeedsPassword = false;
     };
   };
 
-  services = {
-    actkbd = {
-      enable = true;
-      bindings = [
-        { keys = [ 121 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master toggle'"; }
-        { keys = [ 122 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master 5%- unmute'"; }
-        { keys = [ 123 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/runuser -l chronicc -c 'amixer -q set Master 5%+ unmute'"; }
-      ];
-    };
-    gnome.gnome-keyring.enable = true;
-    illum.enable = true;
-    locate = {
-      enable = true;
-    };
-    openssh = {
-      enable = true;
-    };
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-      pulse.enable = true;
-      wireplumber.enable = true;
-    };
-  };
+  services.locate.enable = true;
+
+  services.pipewire.enable = true;
+  services.pipewire.alsa.enable = true;
+  services.pipewire.alsa.support32Bit = true;
+  services.pipewire.pulse.enable = true;
+  services.pipewire.wireplumber.enable = true;
+
+  services.xserver.autorun = true;
+  services.xserver.enable = true;
+  services.xserver.desktopManager.mate.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.layout = "de";
+  services.xserver.libinput.enable = true;
+  services.xserver.xkbVariant = "nodeadkeys";
 
   sound = {
     enable = true;
     mediaKeys = {
       enable = true;
-      # volumeStep = "5%";
     };
   };
 
@@ -238,24 +177,4 @@
   };
 
   virtualisation.docker.enable = true;
-
-  xdg = {
-    autostart.enable = false;
-    mime = {
-      defaultApplications = {
-        "text/html" = "chromium.desktop";
-        "x-scheme-handler/http" = "chromium.desktop";
-        "x-scheme-handler/https" = "chromium.desktop";
-        "x-scheme-handler/about" = "chromium.desktop";
-        "x-scheme-handler/unknown" = "chromium.desktop";
-      };
-      enable = true;
-    };
-    portal = {
-      enable = true;
-      wlr = {
-        enable = true;
-      };
-    };
-  };
 }
