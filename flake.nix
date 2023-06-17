@@ -53,9 +53,10 @@
       lib = nixpkgs.lib;
     in {
 
-      # Pull these packages from the stable branch
+      # Pull these packages from different branches
       overridePackages = self: super: {
         brave = pkgsBrave.brave;
+        skaffold = pkgsUnstable.skaffold;
         vscode = pkgsUnstable.vscode;
       };
 

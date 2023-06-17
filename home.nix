@@ -52,6 +52,7 @@ in {
       poetry
       ranger
       signal-desktop
+      skaffold
       slack
       spotify
       tealdeer
