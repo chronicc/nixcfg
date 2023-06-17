@@ -29,7 +29,6 @@ in {
       awscli2
       aws-nuke
       bemenu
-      brave
       cinnamon.nemo
       docker
       fff

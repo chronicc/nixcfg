@@ -2,8 +2,6 @@
   description = "Central Flake Configuration";
 
   inputs = {
-    brave-src.url = "github:nixos/nixpkgs/8ad5e8132c5dcf977e308e7bf5517cc6cc0bf7d8";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,7 +25,7 @@
     };
   };
 
-  outputs = { self, brave-src, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
+  outputs = { self, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
     let
       system = "x86_64-linux";
 
@@ -46,16 +44,11 @@
         config.allowUnfree = true;
       };
 
-      pkgsBrave = import brave-src {
-        inherit system;
-      };
-
       lib = nixpkgs.lib;
     in {
 
       # Pull these packages from different branches
       overridePackages = self: super: {
-        brave = pkgsBrave.brave;
         skaffold = pkgsUnstable.skaffold;
         vscode = pkgsUnstable.vscode;
       };
