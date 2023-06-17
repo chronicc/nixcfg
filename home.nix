@@ -56,6 +56,7 @@ in {
       slack
       spotify
       tealdeer
+      teamspeak_client
       tig
       terraform
       velero
