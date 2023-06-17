@@ -41,5 +41,6 @@ shaimendel.kubernetesapply
 tim-koehler.helm-intellisense
 timonwong.shellcheck
 wholroyd.jinja
+wwm.better-align
 yzhang.markdown-all-in-one
 zardoy.fix-all-json

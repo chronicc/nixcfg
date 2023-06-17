@@ -51,8 +51,8 @@
     {
       name = "vscode-markdownlint";
       publisher = "davidanson";
-      version = "0.50.0";
-      sha256 = "sha256-F+lryIhSudDz68t1eGrfqI8EuoUUOWU5LfWj0IRCQyY=";
+      version = "0.51.0";
+      sha256 = "sha256-Xtr8cqcPrcrKpJBxQcY1j9Gl4CC6U3ZazS4bdBtdzUk=";
     }
     {
       name = "ansible-vault";
@@ -81,14 +81,14 @@
     {
       name = "copilot";
       publisher = "github";
-      version = "1.88.132";
-      sha256 = "sha256-+iqcZ87x5O5JLQYtRe3hJkM9+h6U6feZnZrnCvVCqYE=";
+      version = "1.89.156";
+      sha256 = "sha256-BJnYd9D3bWrZI8UETnAua8ngVjZJ7EXB1UrZAjVnx1E=";
     }
     {
       name = "go";
       publisher = "golang";
-      version = "0.38.0";
-      sha256 = "sha256-wOWouVz4mE4BzmgQOLQyVWsMadMqeUkFWHnruxStU0Q=";
+      version = "0.39.0";
+      sha256 = "sha256-JWFBo5x2oN6qXW46TfuL7z05dIroBjRpNahG+nUBNuU=";
     }
     {
       name = "json-escaper";
@@ -129,8 +129,8 @@
     {
       name = "csharp";
       publisher = "ms-dotnettools";
-      version = "2.0.206";
-      sha256 = "sha256-6g4/xDzRAOCXXU1+9CWf9fPGQu3wfO+13fJVY571uNk=";
+      version = "2.0.212";
+      sha256 = "sha256-RzQFRq9Cu2AaAPszk5wyRcrEIYxwAdSzSV4dLO9Cuhg=";
     }
     {
       name = "vscode-kubernetes-tools";
@@ -141,20 +141,20 @@
     {
       name = "python";
       publisher = "ms-python";
-      version = "2023.11.11581008";
-      sha256 = "sha256-JMLGyt8/zlzrqu4nTZZJKcdjp6gEqrLIt6mreDN513U=";
+      version = "2023.11.11671008";
+      sha256 = "sha256-llfqAP5Dh9NdbdHHg2rvke6z0XZqpB6/REzx9LnCb1k=";
     }
     {
       name = "vscode-pylance";
       publisher = "ms-python";
-      version = "2023.6.11";
-      sha256 = "sha256-beRcnS5FcQXQ9LHLclMdxEDcNHPWLXCqlJZCQdBWetQ=";
+      version = "2023.6.21";
+      sha256 = "sha256-d3MYBTO3GlnbJlHmwUPTXKQKqmmWOzl+G+BoyduO7uA=";
     }
     {
       name = "jupyter";
       publisher = "ms-toolsai";
-      version = "2023.5.1001582324";
-      sha256 = "sha256-EyN3WkUCcPokT20fwHvQt7v0t+gNLhm/oehML+XDxUY=";
+      version = "2023.6.1001691100";
+      sha256 = "sha256-BxXvEWwKHhmHdp5NeA3agaEGrjKLIpUZ0CaXAINev30=";
     }
     {
       name = "jupyter-keymap";
@@ -213,8 +213,8 @@
     {
       name = "vscode-xml";
       publisher = "redhat";
-      version = "0.25.2023051904";
-      sha256 = "sha256-PXux2vqQrV8+nVzLHB1XYP2oKofQNi0jpWTTpfXltHg=";
+      version = "0.25.2023061604";
+      sha256 = "sha256-b09f5Ve4RCW8W3BGft0VmhAYjs8vRppyyidq1vyKIy4=";
     }
     {
       name = "vscode-yaml";
@@ -231,8 +231,8 @@
     {
       name = "rust-analyzer";
       publisher = "rust-lang";
-      version = "0.4.1545";
-      sha256 = "sha256-yXuePGfoBfHxJXGIGJHTqEwYwYF2qia+7kvixEYB+Ng=";
+      version = "0.4.1554";
+      sha256 = "sha256-eVYnIvqywxK+H3OB8xcoh+peIueFWYFs8lxrqXPL3ls=";
     }
     {
       name = "kubernetesapply";
@@ -257,6 +257,12 @@
       publisher = "wholroyd";
       version = "0.0.8";
       sha256 = "sha256-kU2uMIBChHOE76npA9u1CSJCMPHK0hj/2vasVTx9ydI=";
+    }
+    {
+      name = "better-align";
+      publisher = "wwm";
+      version = "1.1.6";
+      sha256 = "sha256-kJJi+0I/ZCbWmLR8zrhMALY0LwEMMM7/8Jj2pLa6u9E=";
     }
     {
       name = "markdown-all-in-one";
