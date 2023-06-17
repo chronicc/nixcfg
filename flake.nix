@@ -11,7 +11,7 @@
     nixpkgsMaster.url                   = "github:nixos/nixpkgs/master";
   };
 
-  outputs = { self, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
+  outputs = inputs@{ self, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -40,51 +40,13 @@
       nixosConfigurations = {
         libre = lib.nixosSystem {
           inherit system;
+          specialArgs = { inherit inputs; };
           modules = [
+            ./hosts/libre
             {
               nixpkgs.overlays = [ self.overridePackages ];
               nixpkgs.config.allowUnfree = true;
             }
-
-            ./configuration.nix
-
-            ./modules/applications/chromium
-
-            # ./modules/compositors/sway
-
-            # ./modules/login/greetd
-
-            ./modules/peripherie/bluetooth
-            ./modules/peripherie/keyboard
-            ./modules/peripherie/printers
-
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.chronicc = {
-                imports = [
-                  ./home.nix
-
-                  ./modules/applications/matrix
-                  ./modules/applications/obsidian
-                  ./modules/applications/office
-                  ./modules/applications/vscode
-
-                  # ./modules/bars/eww
-                  # ./modules/bars/waybar
-
-                  # ./modules/compositors/hyprland
-
-                  # ./modules/desktop/dunst
-                  # ./modules/desktop/swaybg
-                  # ./modules/desktop/swaylock
-
-                  ./modules/terminals/kitty
-                  ./modules/terminals/terminator
-                ];
-              };
-            }
-
             #hyprland.nixosModules.default {
             #  programs.hyprland.enable = true;
             #}

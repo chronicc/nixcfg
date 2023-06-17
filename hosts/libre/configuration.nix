@@ -2,12 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ../../modules/applications/chromium
+      ../../modules/peripherie/bluetooth
+      ../../modules/peripherie/keyboard
+      ../../modules/peripherie/printers
+
+      inputs.home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.chronicc.imports = [ ../../users/chronicc ];
+      }
     ];
 
   boot = {
