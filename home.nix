@@ -45,6 +45,7 @@ in {
       networkmanagerapplet
       nextcloud-client
       nixfmt # vscode
+      nixos-generators
       nodejs
       openlens
       pamixer
