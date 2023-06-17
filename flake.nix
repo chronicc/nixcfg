@@ -1,32 +1,19 @@
 {
-  description = "Central Flake Configuration";
+  description = "chronicc//infrastructure";
 
   inputs = {
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-23.05";
-    };
-
-    nixpkgsUnstable = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
-
-    nixpkgsMaster = {
-      url = "github:nixos/nixpkgs/master";
-    };
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url                    = "github:nix-community/home-manager";
+    hyprland.inputs.nixpkgs.follows     = "nixpkgs";
+    hyprland.url                        = "github:hyprwm/Hyprland";
+    nixpkgs.url                         = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgsUnstable.url                 = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgsMaster.url                   = "github:nixos/nixpkgs/master";
   };
 
   outputs = { self, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
     let
+      lib = nixpkgs.lib;
       system = "x86_64-linux";
 
       pkgs = import nixpkgs {
@@ -43,10 +30,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-
-      lib = nixpkgs.lib;
     in {
-
       # Pull these packages from different branches
       overridePackages = self: super: {
         skaffold = pkgsUnstable.skaffold;
