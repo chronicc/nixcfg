@@ -4,14 +4,12 @@
   inputs = {
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url                    = "github:nix-community/home-manager";
-    hyprland.inputs.nixpkgs.follows     = "nixpkgs";
-    hyprland.url                        = "github:hyprwm/Hyprland";
     nixpkgs.url                         = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgsUnstable.url                 = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgsMaster.url                   = "github:nixos/nixpkgs/master";
   };
 
-  outputs = inputs@{ self, home-manager, hyprland, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
+  outputs = inputs@{ self, home-manager, nixpkgs, nixpkgsUnstable, nixpkgsMaster, ... }:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -47,9 +45,9 @@
               nixpkgs.overlays = [ self.overridePackages ];
               nixpkgs.config.allowUnfree = true;
             }
-            #hyprland.nixosModules.default {
-            #  programs.hyprland.enable = true;
-            #}
+
+
+
           ];
         };
       };

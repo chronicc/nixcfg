@@ -118,19 +118,11 @@
   };
 
 
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-    package = pkgs.nixFlakes;
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      substituters = ["https://hyprland.cachix.org"];
-      trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-    };
-  };
+  nix.gc.automatic = true;
+  nix.gc.dates = "weekly";
+  nix.gc.options = "--delete-older-than 7d";
+  nix.package = pkgs.nixFlakes;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   security = {
     sudo = {
