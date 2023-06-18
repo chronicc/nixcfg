@@ -50,6 +50,18 @@
 
           ];
         };
+
+        "vps2.kurthos.com" = lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/vps2.kurthos.com
+            {
+              nixpkgs.overlays = [ self.overridePackages ];
+              nixpkgs.config.allowUnfree = true;
+            }
+          ];
+        };
       };
     };
 }
