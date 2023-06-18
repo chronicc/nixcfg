@@ -13,7 +13,10 @@
     curl
     dig
     git
+    nmap
+    vim
     wget
+    whois
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -26,7 +29,13 @@
   };
 
   networking.domain = "kurthos.com";
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.enable = true;
+  networking.firewall.logRefusedConnections = false;
+  networking.fqdn = "vps2.kurthos.com";
   networking.hostName = "vps2";
+  networking.nat.enable = true;
+  networking.nat.externalInterface = "ens3";
   networking.useDHCP = true;
 
   nix.gc.automatic = true;
@@ -39,8 +48,8 @@
   services.openssh.enable = true;
   services.openssh.openFirewall = true;
   services.openssh.ports = [ 2222 ];
-  services.openssh.settings.permitRootLogin = true;
-  services.openssh.settings.passwordAuthentication = false;
+  services.openssh.settings.PermitRootLogin = "without-password";
+  services.openssh.settings.PasswordAuthentication = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
