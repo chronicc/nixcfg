@@ -1,0 +1,52 @@
+#---( AWS )---
+host *.compute.amazonaws.com
+  forwardagent no
+  identitiesonly yes
+  user ec2-user
+
+
+#---( chronicc )---
+host *.chroni.cc
+  forwardagent no
+  port 2222
+  preferredauthentications publickey
+  user root
+
+host libre sense
+  forwardagent yes
+  preferredauthentications publickey
+  user chronicc
+
+
+#---( Kurthos )---
+host *.kurthos.com
+  forwardagent no
+  port 2222
+  preferredauthentications publickey
+  user root
+
+host ftp.netcup.de
+  hostkeyalgorithms +ssh-dss
+  hostname 46.38.225.190
+  port 2222
+  preferredauthentications password
+
+
+#---( JollyBits )---
+host *.jollybits.de
+  forwardagent no
+  port 2222
+  preferredauthentications publickey
+  user root
+
+
+#---( Local )---
+host 127.0.0.1
+  stricthostkeychecking false
+
+
+#---( Fallback )---
+host *
+  addressfamily inet
+  forwardagent no
+  user root

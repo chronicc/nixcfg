@@ -21,6 +21,7 @@ in {
     };
   };
 
+  home.file.".ssh/config".source = ./ssh_config;
   home = {
     homeDirectory = user_home_dir;
     packages = with pkgs; [
