@@ -87,6 +87,8 @@ in {
     127.0.0.1 my-app-frontend.local my-app-backend.local
   '';
   networking.hostName = "libre";
+  networking.nat.enable = true;
+  networking.nat.externalInterface = "wlo1";
   networking.networkmanager.enable = true;
   networking.networkmanager.insertNameservers = ["8.8.8.8" "8.8.4.4"];
   networking.wireless.userControlled.enable = true;
