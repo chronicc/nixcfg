@@ -7,16 +7,11 @@
 {
   imports =
     [
+      ../../users/chronicc
       ../../modules/applications/chromium
       ../../modules/peripherie/bluetooth
       ../../modules/peripherie/keyboard
       ../../modules/peripherie/printers
-
-      inputs.home-manager.nixosModules.home-manager {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.chronicc.imports = [ ../../users/chronicc ];
-      }
     ];
 
   boot = {

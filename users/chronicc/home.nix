@@ -2,7 +2,6 @@
 
 let
   user_home_dir = "/home/chronicc";
-  user_repository_dir = "${user_home_dir}/git/chronicc/flakes";
 in {
   gtk = {
     enable = true;
