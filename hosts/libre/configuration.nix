@@ -132,4 +132,5 @@ in {
   time.timeZone = "${config.timezone}";
 
   virtualisation.docker.enable = true;
+  virtualisation.libvirtd.enable = true;
 }
