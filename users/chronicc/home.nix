@@ -25,44 +25,7 @@ in {
   home = {
     homeDirectory = user_home_dir;
     packages = with pkgs; [
-      ardour
-      awscli2
-      aws-nuke
-      bemenu
-      cinnamon.nemo
-      docker
-      fff
-      font-manager
-      git-remote-codecommit
-      gnome.simple-scan
-      gnumake
-      helmfile
-      kubectl
-      kubernetes-helm
-      minikube
-      neofetch
-      networkmanagerapplet
-      nextcloud-client
-      nixfmt # vscode
-      nixos-generators
-      nodejs
-      openlens
-      pamixer
-      pavucontrol
-      poetry
-      ranger
-      signal-desktop
-      skaffold
-      slack
-      spotify
-      tealdeer
-      teamspeak_client
-      tig
-      terraform
-      velero
-      wl-clipboard
-      yamllint
-      yq-go
+      pandoc # Document Converter
     ];
     pointerCursor = {
       gtk.enable = true;
