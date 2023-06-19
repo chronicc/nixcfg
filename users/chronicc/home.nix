@@ -25,7 +25,43 @@ in {
   home = {
     homeDirectory = user_home_dir;
     packages = with pkgs; [
+      ardour # Digital Audio Workstation
+      awscli2 # AWS CLI
+      aws-nuke # AWS account cleaner
+      cinnamon.nemo # File manager
+      docker # Container runtime
+      fff # File manager
+      font-manager # Font manager
+      git-remote-codecommit # AWS CodeCommit git remote helper
+      gnome.simple-scan # Scanner GUI
+      gnumake # Make
+      helmfile # Helmfile
+      kubectl # Kubernetes CLI
+      kubernetes-helm # Helm
+      minikube # Kubernetes cluster
+      neofetch # System info
+      networkmanagerapplet # Network manager GUI
+      nextcloud-client # Nextcloud client
+      nixos-generators # NixOS image generators
+      nodejs # Node.js
+      openlens # Kubernetes cluster manager
       pandoc # Document Converter
+      pamixer # PulseAudio mixer GUI
+      pavucontrol # PulseAudio mixer GUI
+      poetry # Python package manager
+      ranger # File manager
+      signal-desktop # Signal messenger
+      skaffold # Kubernetes dev tool
+      slack # Slack messenger
+      spotify # Spotify client
+      tealdeer # tldr client
+      teamspeak_client # Teamspeak client
+      tig # Git CLI
+      terraform # Terraform
+      velero # Kubernetes backup tool
+      wl-clipboard # Clipboard manager
+      yamllint # YAML linter
+      yq-go # YAML parser
     ];
     pointerCursor = {
       gtk.enable = true;
