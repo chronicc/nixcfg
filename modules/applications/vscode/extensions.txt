@@ -36,7 +36,6 @@ redhat.vscode-commons
 redhat.vscode-xml
 redhat.vscode-yaml
 ritwickdey.liveserver
-rust-lang.rust-analyzer
 shaimendel.kubernetesapply
 tim-koehler.helm-intellisense
 timonwong.shellcheck

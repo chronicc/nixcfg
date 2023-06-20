@@ -9,8 +9,8 @@
     {
       name = "asciidoctor-vscode";
       publisher = "asciidoctor";
-      version = "3.0.5";
-      sha256 = "sha256-jKnwh59hr+BjuTVqqAtY20RhXBPY91dsXuakKZSsLx4=";
+      version = "3.0.6";
+      sha256 = "sha256-uXj7PJZEJ6Vw2ACuKvsYXFEkRYk2CCi0XpJ9Ntnin+o=";
     }
     {
       name = "jsoncrack-vscode";
@@ -69,8 +69,8 @@
     {
       name = "prettier-vscode";
       publisher = "esbenp";
-      version = "9.13.0";
-      sha256 = "sha256-Iqz1O6odSzAfojCgGDwDA1YtnWU5Ei7vx9Qt25/1SLw=";
+      version = "9.14.0";
+      sha256 = "sha256-0eb3W9SErsqPofjR1DaChDghvWOQFSYIMnnWbu8GiHY=";
     }
     {
       name = "yuck";
@@ -153,8 +153,8 @@
     {
       name = "jupyter";
       publisher = "ms-toolsai";
-      version = "2023.6.1001691100";
-      sha256 = "sha256-BxXvEWwKHhmHdp5NeA3agaEGrjKLIpUZ0CaXAINev30=";
+      version = "2023.6.1001731100";
+      sha256 = "sha256-l52chd0/Fw88pitf45eqBZuxxWSzf6vy6oFPE73jgtk=";
     }
     {
       name = "jupyter-keymap";
@@ -227,12 +227,6 @@
       publisher = "ritwickdey";
       version = "5.7.9";
       sha256 = "sha256-w0CYSEOdltwMFzm5ZhOxSrxqQ1y4+gLfB8L+EFFgzDc=";
-    }
-    {
-      name = "rust-analyzer";
-      publisher = "rust-lang";
-      version = "0.4.1554";
-      sha256 = "sha256-eVYnIvqywxK+H3OB8xcoh+peIueFWYFs8lxrqXPL3ls=";
     }
     {
       name = "kubernetesapply";
