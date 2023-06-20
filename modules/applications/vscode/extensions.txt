@@ -39,6 +39,7 @@ ritwickdey.liveserver
 shaimendel.kubernetesapply
 tim-koehler.helm-intellisense
 timonwong.shellcheck
+waderyan.gitblame
 wholroyd.jinja
 wwm.better-align
 yzhang.markdown-all-in-one

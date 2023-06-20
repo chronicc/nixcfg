@@ -247,6 +247,12 @@
       sha256 = "sha256-/RDvLq82laq4HBpRwP82oTCTXvGeAa0YFAfeFhRqnzQ=";
     }
     {
+      name = "gitblame";
+      publisher = "waderyan";
+      version = "10.2.0";
+      sha256 = "sha256-w/uecQeby42RVCUKpK+7LBc9HFPoaeZU45gfOR9tAkc=";
+    }
+    {
       name = "jinja";
       publisher = "wholroyd";
       version = "0.0.8";
