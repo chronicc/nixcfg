@@ -86,6 +86,7 @@ in {
   networking.extraHosts = ''
     127.0.0.1 my-app-frontend.local my-app-backend.local
   '';
+  networking.firewall.enable = true;
   networking.hostName = "libre";
   networking.nat.enable = true;
   networking.nat.externalInterface = "wlo1";
