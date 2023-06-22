@@ -31,6 +31,8 @@
     in {
       # Pull these packages from different branches
       overridePackages = self: super: {
+        qt6Packages.qt6ct = pkgsUnstable.qt6Packages.qt6ct;
+        qt6Packages.qtstyleplugin-kvantum = pkgsUnstable.qt6Packages.qtstyleplugin-kvantum;
         skaffold = pkgsUnstable.skaffold;
         vscode = pkgsUnstable.vscode;
       };
