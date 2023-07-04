@@ -12,9 +12,12 @@ diego-vieira.codeception-snippets
 esbenp.prettier-vscode
 eww-yuck.yuck
 github.copilot
+github.copilot-chat
+github.heygithub
 golang.go
 joshuapoehls.json-escaper
 marioqueiros.camelcase
+mhutchie.git-graph
 mikestead.dotenv
 mitchdenny.ecdc
 mkhl.direnv
