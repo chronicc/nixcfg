@@ -46,6 +46,7 @@ in {
       networkmanagerapplet # Network manager GUI
       nextcloud-client # Nextcloud client
       nixos-generators # NixOS image generators
+      nmap # Network scanner
       nodejs # Node.js
       openlens # Kubernetes cluster manager
       pandoc # Document Converter
