@@ -6,6 +6,7 @@
 
 let
   config.flake.location = "/home/chronicc/git/chronicc/flakes/flake.nix";
+  config.hostname = "libre";
   config.timezone = "Europe/Berlin";
 in {
   imports =
@@ -87,7 +88,7 @@ in {
     127.0.0.1 my-app-frontend.local my-app-backend.local
   '';
   networking.firewall.enable = true;
-  networking.hostName = "libre";
+  networking.hostName = "${config.hostname}";
   networking.nat.enable = true;
   networking.nat.externalInterface = "wlo1";
   networking.networkmanager.enable = true;
@@ -103,11 +104,13 @@ in {
   security.sudo.wheelNeedsPassword = false;
 
   services.locate.enable = true;
+
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;
   services.pipewire.alsa.support32Bit = true;
   services.pipewire.pulse.enable = true;
   services.pipewire.wireplumber.enable = true;
+
   services.xserver.autorun = true;
   services.xserver.enable = true;
   services.xserver.desktopManager.mate.enable = true;
