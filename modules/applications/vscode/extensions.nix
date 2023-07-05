@@ -43,6 +43,12 @@
       sha256 = "sha256-g+LfgjAnSuSj/nSmlPdB0t29kqTmegZB5B1cYzP8kCI=";
     }
     {
+      name = "vscode-better-align";
+      publisher = "chouzz";
+      version = "1.4.2";
+      sha256 = "sha256-w30DAQpCxc3qP6/S/9qf/nQasLU3qy5flCBlTGRoYzk=";
+    }
+    {
       name = "font-preview";
       publisher = "ctcuff";
       version = "2.2.1";
@@ -81,8 +87,8 @@
     {
       name = "copilot";
       publisher = "github";
-      version = "1.95.237";
-      sha256 = "sha256-9H1jEGaHURz+bThRBF4+yDgT5BYRun+dDMq5CDcxOhk=";
+      version = "1.95.239";
+      sha256 = "sha256-JWSeLapq/CJWaZ3aMATTyb2k0bS4+HJD0UKaB+B07gg=";
     }
     {
       name = "copilot-chat";
@@ -275,12 +281,6 @@
       publisher = "wholroyd";
       version = "0.0.8";
       sha256 = "sha256-kU2uMIBChHOE76npA9u1CSJCMPHK0hj/2vasVTx9ydI=";
-    }
-    {
-      name = "better-align";
-      publisher = "wwm";
-      version = "1.1.6";
-      sha256 = "sha256-kJJi+0I/ZCbWmLR8zrhMALY0LwEMMM7/8Jj2pLa6u9E=";
     }
     {
       name = "markdown-all-in-one";

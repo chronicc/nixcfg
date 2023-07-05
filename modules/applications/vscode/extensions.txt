@@ -5,6 +5,7 @@ bazelbuild.vscode-bazel
 bbenoist.nix
 bierner.markdown-mermaid
 bungcip.better-toml
+chouzz.vscode-better-align
 ctcuff.font-preview
 davidanson.vscode-markdownlint
 dhoeric.ansible-vault
@@ -44,6 +45,5 @@ tim-koehler.helm-intellisense
 timonwong.shellcheck
 waderyan.gitblame
 wholroyd.jinja
-wwm.better-align
 yzhang.markdown-all-in-one
 zardoy.fix-all-json
