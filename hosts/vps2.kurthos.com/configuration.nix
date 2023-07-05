@@ -51,6 +51,9 @@
   services.nomad.settings = {
     datacenter = "dc1";
     data_dir = "/var/lib/nomad";
+    acl = {
+      enabled = true;
+    };
     client = {
       enabled = true;
     };
