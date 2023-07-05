@@ -45,6 +45,21 @@
   nix.settings.experimental-features = "flakes nix-command";
 
   services.locate.enable = true;
+
+  services.nomad.enable = true;
+  services.nomad.enableDocker = true;
+  services.nomad.settings = {
+    datacenter = "dc1";
+    data_dir = "/var/lib/nomad";
+    client = {
+      enabled = true;
+    };
+    server = {
+      enabled = true;
+      bootstrap_expect = 1;
+    };
+  };
+
   services.openssh.enable = true;
   services.openssh.openFirewall = true;
   services.openssh.ports = [ 2222 ];
