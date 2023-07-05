@@ -47,7 +47,6 @@ in {
       nextcloud-client # Nextcloud client
       nixos-generators # NixOS image generators
       nodejs # Node.js
-      nomad # Nomad cluster orchestrator
       openlens # Kubernetes cluster manager
       pandoc # Document Converter
       pamixer # PulseAudio mixer GUI
