@@ -26,6 +26,12 @@ endif
 
 #---( Targets )------------------------------------------------------------------------------------
 
+update-libre:
+	HOST=libre make host-update
+
+update-vps2.kurthos.com:
+	HOST=vps2.kurthos.com make host-update
+
 update-vscode-extensions:
 	@echo "Generating vscode extensions list. This will take a while..."
 	cp $(VSCODE_EXT_OUTPUT_FILE) $(VSCODE_EXT_OUTPUT_FILE).bak
