@@ -1,4 +1,4 @@
-# Flakes Configuration
+# Nix Configuration
 
 ## Architecture
 

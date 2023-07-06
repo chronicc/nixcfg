@@ -5,7 +5,7 @@
 { config, inputs, lib, pkgs, ... }:
 
 let
-  config.flake.location = "/home/chronicc/git/chronicc/flakes/flake.nix";
+  config.flake.location = "/home/chronicc/git/chronicc/nixcfg/flake.nix";
   config.hostname = "libre";
   config.timezone = "Europe/Berlin";
 in {
