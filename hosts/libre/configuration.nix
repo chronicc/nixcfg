@@ -46,6 +46,7 @@ in {
     git-lfs
     killall
     nix-index
+    openjdk17
     pciutils
     usbutils
     vim
