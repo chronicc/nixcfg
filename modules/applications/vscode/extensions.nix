@@ -87,14 +87,14 @@
     {
       name = "copilot";
       publisher = "github";
-      version = "1.95.239";
-      sha256 = "sha256-JWSeLapq/CJWaZ3aMATTyb2k0bS4+HJD0UKaB+B07gg=";
+      version = "1.95.243";
+      sha256 = "sha256-4fIs3/L4YpYanJ+Vqh/85w8IZG+i7PcTZ5EQuTZOWjo=";
     }
     {
       name = "copilot-chat";
       publisher = "github";
-      version = "0.3.2023070401";
-      sha256 = "sha256-vHYiAss94nVEKmOb6HaB2FN32n5ziilQ09Y/LQMPe6c=";
+      version = "0.3.2023070603";
+      sha256 = "sha256-tf18xKhfX4bNwcbkElLi1OxL/y4nQfQPsVPw647StLA=";
     }
     {
       name = "heygithub";
@@ -157,6 +157,12 @@
       sha256 = "sha256-RrLOOYYhTdZOS22XeMrKzNghw9j+MRqFfwVECfYdQ5s=";
     }
     {
+      name = "vscode-dotnet-runtime";
+      publisher = "ms-dotnettools";
+      version = "1.6.0";
+      sha256 = "sha256-A3m5IvPKgmF2Dix1/bHFGcrJYriYsFgRagkZNcWf/RA=";
+    }
+    {
       name = "vscode-kubernetes-tools";
       publisher = "ms-kubernetes-tools";
       version = "1.3.13";
@@ -165,20 +171,20 @@
     {
       name = "python";
       publisher = "ms-python";
-      version = "2023.11.11841013";
-      sha256 = "sha256-1MbfvvLJKlpr8fU6o7eCb6u0q+oSWUbutMZS94AmyJw=";
+      version = "2023.13.11871009";
+      sha256 = "sha256-MuxIXGmdrD5b+uAsTuZVn26DKeazhEknlFuEjOQLP7s=";
     }
     {
       name = "vscode-pylance";
       publisher = "ms-python";
-      version = "2023.6.43";
-      sha256 = "sha256-4vVPUdhxC8+3iQVcqbtobDLnS2Y8d8gQNYp+NU9jgk0=";
+      version = "2023.7.11";
+      sha256 = "sha256-8fTT9pB/IHhBeZIlEe+FG4sFe6QsfkgQGkgNACyUAJY=";
     }
     {
       name = "jupyter";
       publisher = "ms-toolsai";
-      version = "2023.6.1001821100";
-      sha256 = "sha256-9ZGnr8v39j+hF6RH9VPxetI4q/LuSOYtvIfvMfSUrGI=";
+      version = "2023.6.1001861915";
+      sha256 = "sha256-aTHa5nAixrE6iWg+3Rq8i98pMQzuu3rYBHqxN0JlPjo=";
     }
     {
       name = "jupyter-keymap";
