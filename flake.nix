@@ -11,8 +11,9 @@
 
   outputs = inputs@{ self, ... }:
     let
-      lib = inputs.nixpkgs.lib;
-      system = "x86_64-linux";
+      lib = inputs.nixpkgs.lib.extend (self: super: {
+        inherit (import ./derivations/templateFile.nix { inherit pkgs; }) templateFile;
+      });
 
       pkgsUnstable = import inputs.nixpkgsUnstable {
         inherit system;
@@ -36,11 +37,13 @@
           })
         ];
       };
+
+      system = "x86_64-linux";
     in {
       nixosConfigurations = {
         libre = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs pkgs; };
+          specialArgs = { inherit lib inputs pkgs; };
           modules = [
             ./hosts/libre
           ];
@@ -48,7 +51,7 @@
 
         "vps2.kurthos.com" = lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs pkgs; };
+          specialArgs = { inherit lib inputs pkgs; };
           modules = [
             ./hosts/vps2.kurthos.com
           ];
