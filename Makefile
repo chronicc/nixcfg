@@ -41,6 +41,6 @@ host-generate:
 	@echo "Generating host image for $(HOST)..."
 	nixos-generate -f $(HOST_IMAGE_FORMAT) -c hosts/$(HOST)/configuration.nix
 
-	@echo "Updating configuration for $(HOST)..."
 host-update:
+	@echo "Updating configuration for $(HOST)..."
 	$(__SUDO) nixos-rebuild $(__NIXOS_REBUILD_ARGS) switch
