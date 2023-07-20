@@ -61,6 +61,12 @@
       sha256 = "sha256-Xtr8cqcPrcrKpJBxQcY1j9Gl4CC6U3ZazS4bdBtdzUk=";
     }
     {
+      name = "mustache";
+      publisher = "dawhite";
+      version = "1.1.1";
+      sha256 = "sha256-PkymMex1icvDN2Df38EIuV1O9TkMNWP2sGOjl1+xGMk=";
+    }
+    {
       name = "ansible-vault";
       publisher = "dhoeric";
       version = "0.1.3";

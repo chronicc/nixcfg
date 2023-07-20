@@ -8,6 +8,7 @@ bungcip.better-toml
 chouzz.vscode-better-align
 ctcuff.font-preview
 davidanson.vscode-markdownlint
+dawhite.mustache
 dhoeric.ansible-vault
 diego-vieira.codeception-snippets
 esbenp.prettier-vscode
