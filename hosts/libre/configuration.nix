@@ -24,7 +24,7 @@ in {
     preLVM = true;
   };
   boot.initrd.systemd.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_3;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "boot.shell_on_fail"
     "i915.force_probe=46a6"
