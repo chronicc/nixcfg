@@ -29,12 +29,13 @@ in {
     homeDirectory = user_home_dir;
     packages = with pkgs; [
       ardour # Digital Audio Workstation
-      awscli2 # AWS CLI
       aws-nuke # AWS account cleaner
+      awscli2 # AWS CLI
       cinnamon.nemo # File manager
       docker # Container runtime
       fff # File manager
       font-manager # Font manager
+      gimp # Image manipulation
       git-remote-codecommit # AWS CodeCommit git remote helper
       gnome.simple-scan # Scanner GUI
       gnumake # Make
@@ -49,8 +50,8 @@ in {
       nmap # Network scanner
       nodejs # Node.js
       openlens # Kubernetes cluster manager
-      pandoc # Document Converter
       pamixer # PulseAudio mixer GUI
+      pandoc # Document Converter
       pavucontrol # PulseAudio mixer GUI
       poetry # Python package manager
       ranger # File manager
@@ -60,8 +61,8 @@ in {
       spotify # Spotify client
       tealdeer # tldr client
       teamspeak_client # Teamspeak client
-      tig # Git CLI
       terraform # Terraform
+      tig # Git CLI
       velero # Kubernetes backup tool
       wl-clipboard # Clipboard manager
       yamllint # YAML linter
