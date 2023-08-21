@@ -63,6 +63,7 @@ in {
       teamspeak_client # Teamspeak client
       terraform # Terraform
       tig # Git CLI
+      vagrant # Virtual machine manager
       velero # Kubernetes backup tool
       wl-clipboard # Clipboard manager
       yamllint # YAML linter
