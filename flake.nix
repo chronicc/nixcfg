@@ -30,6 +30,7 @@
         config.allowUnfree = true;
         overlays = [
           (self: super: {
+            poetry = pkgsUnstable.poetry;
             qt6Packages.qt6ct = pkgsUnstable.qt6Packages.qt6ct;
             qt6Packages.qtstyleplugin-kvantum = pkgsUnstable.qt6Packages.qtstyleplugin-kvantum;
             skaffold = pkgsUnstable.skaffold;
