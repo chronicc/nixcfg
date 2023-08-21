@@ -28,6 +28,9 @@ in {
   home = {
     homeDirectory = user_home_dir;
     packages = with pkgs; [
+      (vagrant.override {
+        withLibvirt = false; # disable installation of outdated libvirt plugin
+      }) # Virtual machine manager
       ardour # Digital Audio Workstation
       aws-nuke # AWS account cleaner
       awscli2 # AWS CLI
@@ -63,7 +66,6 @@ in {
       teamspeak_client # Teamspeak client
       terraform # Terraform
       tig # Git CLI
-      vagrant # Virtual machine manager
       velero # Kubernetes backup tool
       wl-clipboard # Clipboard manager
       yamllint # YAML linter
